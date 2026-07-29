@@ -523,6 +523,80 @@
               />
             </div>
             <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+              <div class="relative" id="langSwitch">
+                <button
+                  type="button"
+                  id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Выбор языка"
+                  class="inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-3 sm:px-3.5 py-2 hover:bg-brand-teal/5 transition"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18" />
+                    <path
+                      d="M12 3a14.5 14.5 0 0 1 0 18 14.5 14.5 0 0 1 0-18z"
+                    />
+                  </svg>
+                  <span id="langLabel">Рус</span>
+                  <svg
+                    id="langChevron"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    viewBox="0 0 24 24"
+                    class="transition-transform"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  id="langPopup"
+                  role="listbox"
+                  aria-label="Языки"
+                  class="hidden absolute right-0 top-[calc(100%+8px)] z-50 min-w-[168px] rounded-xl border border-brand-teal/20 bg-white py-1.5 shadow-card"
+                >
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="kk"
+                    data-label="Қаз"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    Қазақша
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="ru"
+                    data-label="Рус"
+                    aria-selected="true"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal"
+                  >
+                    Русский
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="en"
+                    data-label="Eng"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    English
+                  </button>
+                </div>
+              </div>
               <a
                 href="#"
                 class="hidden sm:inline-flex items-center justify-center rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-5 py-2 hover:bg-brand-teal/5 transition"
@@ -2384,7 +2458,7 @@
               </p>
 
               <div
-                class="mt-9 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-4"
+                class="mt-9 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3.5 sm:gap-4"
               >
                 <!-- 300k -->
                 <div
@@ -2557,39 +2631,6 @@
                     class="mt-2.5 text-[12px] sm:text-[12.5px] text-slate-500 leading-snug max-w-[120px]"
                   >
                     областей и городов
-                  </div>
-                </div>
-
-                <!-- 1 ecosystem -->
-                <div
-                  class="bg-white rounded-[20px] shadow-[0_8px_28px_rgba(15,37,64,0.06)] px-4 py-6 flex flex-col items-center text-center min-h-[168px]"
-                >
-                  <span
-                    class="w-[52px] h-[52px] rounded-full bg-[#EBF1FE] flex items-center justify-center mb-4"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24ZM21.3 14.4C21.7065 12.8258 21.7065 11.1742 21.3 9.6H16.716C16.8265 11.1981 16.8265 12.8019 16.716 14.4H21.3ZM20.316 16.8H16.452C16.2515 18.2465 15.8685 19.6618 15.312 21.012C17.4201 20.2344 19.1901 18.7445 20.316 16.8ZM9.696 14.4H14.304C14.4343 12.8027 14.4343 11.1973 14.304 9.6H9.696C9.5657 11.1973 9.5657 12.8027 9.696 14.4ZM9.996 16.8C10.488 19.68 11.352 21.6 12 21.6C12.648 21.6 13.512 19.68 14.004 16.8H9.996ZM2.7 14.4H7.284C7.17352 12.8019 7.17352 11.1981 7.284 9.6H2.7C2.29355 11.1742 2.29355 12.8258 2.7 14.4ZM3.684 16.8C4.80991 18.7445 6.57994 20.2344 8.688 21.012C8.184 19.86 7.8 18.42 7.548 16.8H3.684ZM20.316 7.2C19.1901 5.25553 17.4201 3.76564 15.312 2.988C15.816 4.14 16.2 5.58 16.452 7.2H20.316ZM9.996 7.2H14.004C13.512 4.32 12.648 2.4 12 2.4C11.352 2.4 10.488 4.32 9.996 7.2ZM3.684 7.2H7.548C7.788 5.58 8.184 4.14 8.688 2.988C6.57994 3.76564 4.80991 5.25553 3.684 7.2Z"
-                        fill="#2563EB"
-                      />
-                    </svg>
-                  </span>
-                  <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2563EB] leading-none tracking-tight"
-                  >
-                    1
-                  </div>
-                  <div
-                    class="mt-2.5 text-[12px] sm:text-[12.5px] text-slate-500 leading-snug max-w-[130px]"
-                  >
-                    единая цифровая экосистема
                   </div>
                 </div>
               </div>
@@ -3452,6 +3493,65 @@
       mobileNav?.querySelectorAll("[data-close]").forEach((el) => {
         el.addEventListener("click", () => mobileNav.classList.add("hidden"));
       });
+
+      const langSwitch = document.getElementById("langSwitch");
+      const langBtn = document.getElementById("langBtn");
+      const langPopup = document.getElementById("langPopup");
+      const langLabel = document.getElementById("langLabel");
+      const langChevron = document.getElementById("langChevron");
+      const langActive =
+        "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal";
+      const langIdle =
+        "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition";
+
+      function openLangPopup(open) {
+        langPopup?.classList.toggle("hidden", !open);
+        langBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+        langChevron?.classList.toggle("rotate-180", open);
+      }
+
+      function setLang(lang) {
+        langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+          const on = btn.getAttribute("data-lang") === lang;
+          btn.className = on ? langActive : langIdle;
+          if (on) {
+            btn.setAttribute("aria-selected", "true");
+            if (langLabel) langLabel.textContent = btn.getAttribute("data-label");
+          } else {
+            btn.removeAttribute("aria-selected");
+          }
+        });
+        document.documentElement.lang =
+          lang === "kk" ? "kk" : lang === "en" ? "en" : "ru";
+        try {
+          localStorage.setItem("beyim-lang", lang);
+        } catch (_) {}
+        openLangPopup(false);
+      }
+
+      langBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLangPopup(langPopup?.classList.contains("hidden"));
+      });
+
+      langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+        btn.addEventListener("click", () =>
+          setLang(btn.getAttribute("data-lang"))
+        );
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!langSwitch?.contains(e.target)) openLangPopup(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") openLangPopup(false);
+      });
+
+      try {
+        const saved = localStorage.getItem("beyim-lang");
+        if (saved && ["kk", "ru", "en"].includes(saved)) setLang(saved);
+      } catch (_) {}
     </script>
   </body>
 </html>
