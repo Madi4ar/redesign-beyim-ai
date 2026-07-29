@@ -131,6 +131,19 @@
       .float-c {
         animation: float-y 4.5s ease-in-out infinite 1.2s;
       }
+
+      details.nav-group > summary {
+        list-style: none;
+      }
+      details.nav-group > summary::-webkit-details-marker {
+        display: none;
+      }
+      details.nav-group[open] > summary .nav-chevron {
+        transform: rotate(180deg);
+      }
+      details.nav-group .nav-chevron {
+        transition: transform 0.2s ease;
+      }
     </style>
   </head>
   <body class="font-sans text-navy antialiased">
@@ -208,36 +221,67 @@
             </svg>
             Мероприятия
           </a>
-          <a
-            href="#products"
-            class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
-          >
-            <span class="flex items-center gap-3">
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition cursor-pointer"
+            >
+              <span class="flex items-center gap-3">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                </svg>
+                Продукты
+              </span>
               <svg
-                width="18"
-                height="18"
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.8"
+                stroke-width="2"
                 viewBox="0 0 24 24"
               >
-                <path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                />
+                <path d="m6 9 6 6 6-6" />
               </svg>
-              Продукты
-            </span>
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
             >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </a>
+              <a
+                href="#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim Learn</a
+              >
+              <a
+                href="#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim School</a
+              >
+              <a
+                href="#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim AI</a
+              >
+              <a
+                href="#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
           <a
             href="#community"
             class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
@@ -256,36 +300,109 @@
             </svg>
             Сообщество
           </a>
-          <a
-            href="#about"
-            class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
-          >
-            <span class="flex items-center gap-3">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 17H13V11H11V17ZM12.713 8.713C12.9043 8.521 13 8.28333 13 8C13 7.71667 12.904 7.47933 12.712 7.288C12.52 7.09667 12.2827 7.00067 12 7C11.7173 6.99933 11.48 7.09533 11.288 7.288C11.096 7.48067 11 7.718 11 8C11 8.282 11.096 8.51967 11.288 8.713C11.48 8.90633 11.7173 9.002 12 9C12.2827 8.998 12.5203 8.902 12.713 8.712M12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88334 20.6867 5.825 19.9743 4.925 19.075C4.025 18.1757 3.31267 17.1173 2.788 15.9C2.26333 14.6827 2.00067 13.3827 2 12C1.99933 10.6173 2.262 9.31733 2.788 8.1C3.314 6.88267 4.02633 5.82433 4.925 4.925C5.82367 4.02567 6.882 3.31333 8.1 2.788C9.318 2.26267 10.618 2 12 2C13.382 2 14.682 2.26267 15.9 2.788C17.118 3.31333 18.1763 4.02567 19.075 4.925C19.9737 5.82433 20.6863 6.88267 21.213 8.1C21.7397 9.31733 22.002 10.6173 22 12C21.998 13.3827 21.7353 14.6827 21.212 15.9C20.6887 17.1173 19.9763 18.1757 19.075 19.075C18.1737 19.9743 17.1153 20.687 15.9 21.213C14.6847 21.739 13.3847 22.0013 12 22Z"
-                  fill="currentColor"
-                />
-              </svg>
-              О нас
-            </span>
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition cursor-pointer"
             >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </a>
+              <span class="flex items-center gap-3">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 17H13V11H11V17ZM12.713 8.713C12.9043 8.521 13 8.28333 13 8C13 7.71667 12.904 7.47933 12.712 7.288C12.52 7.09667 12.2827 7.00067 12 7C11.7173 6.99933 11.48 7.09533 11.288 7.288C11.096 7.48067 11 7.718 11 8C11 8.282 11.096 8.51967 11.288 8.713C11.48 8.90633 11.7173 9.002 12 9C12.2827 8.998 12.5203 8.902 12.713 8.712M12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88334 20.6867 5.825 19.9743 4.925 19.075C4.025 18.1757 3.31267 17.1173 2.788 15.9C2.26333 14.6827 2.00067 13.3827 2 12C1.99933 10.6173 2.262 9.31733 2.788 8.1C3.314 6.88267 4.02633 5.82433 4.925 4.925C5.82367 4.02567 6.882 3.31333 8.1 2.788C9.318 2.26267 10.618 2 12 2C13.382 2 14.682 2.26267 15.9 2.788C17.118 3.31333 18.1763 4.02567 19.075 4.925C19.9737 5.82433 20.6863 6.88267 21.213 8.1C21.7397 9.31733 22.002 10.6173 22 12C21.998 13.3827 21.7353 14.6827 21.212 15.9C20.6887 17.1173 19.9763 18.1757 19.075 19.075C18.1737 19.9743 17.1153 20.687 15.9 21.213C14.6847 21.739 13.3847 22.0013 12 22Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                О нас
+              </span>
+              <svg
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
+            >
+              <a
+                href="#about"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >О компании</a
+              >
+              <a
+                href="#about"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Тренеры</a
+              >
+              <details class="nav-group">
+                <summary
+                  class="flex items-center justify-between rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition cursor-pointer"
+                >
+                  <span>Проекты</span>
+                  <svg
+                    class="nav-chevron shrink-0"
+                    width="12"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div
+                  class="ml-2 pl-3 border-l border-slate-100 flex flex-col gap-0.5 py-1"
+                >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Отпан</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Кадровый резерв</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Түркістан</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Таджикистан</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Целиноград</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >СКО</a
+                  >
+                  <a
+                    href="#about"
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:text-navy hover:bg-slate-50 transition"
+                    >Опорные школы</a
+                  >
+                </div>
+              </details>
+            </div>
+          </details>
           <a
             href="#orgs"
             class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
@@ -2212,7 +2329,7 @@
 
           <!-- STATS -->
           <section
-            class="relative -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-10 sm:py-12 overflow-hidden rounded-[28px] bg-gradient-to-b from-[#F5F9FF] via-[#F7FAFF] to-[#EEF5FF]"
+            class="relative -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-10 sm:py-12 overflow-hidden rounded-[28px]"
           >
             <div
               class="absolute right-6 top-4 w-28 h-28 sm:w-40 sm:h-40 dot-grid opacity-50 pointer-events-none"
@@ -3155,7 +3272,7 @@
             >Главная</a
           >
           <a
-            href="#products"
+            href="#courses"
             data-close
             class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
             >Витрина курсов</a
@@ -3166,18 +3283,156 @@
             class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
             >Мероприятия</a
           >
-          <a
-            href="#products"
-            data-close
-            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
-            >Продукты</a
-          >
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>Продукты</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim Learn</a
+              >
+              <a
+                href="#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim School</a
+              >
+              <a
+                href="#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim AI</a
+              >
+              <a
+                href="#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
           <a
             href="#path"
             data-close
             class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
             >Проф. путь</a
           >
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>О нас</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="#about"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >О компании</a
+              >
+              <a
+                href="#about"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Тренеры</a
+              >
+              <details class="nav-group">
+                <summary
+                  class="flex items-center justify-between rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50 cursor-pointer"
+                >
+                  <span>Проекты</span>
+                  <svg
+                    class="nav-chevron"
+                    width="12"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div class="ml-2 flex flex-col gap-0.5">
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Отпан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Кадровый резерв</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Түркістан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Таджикистан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Целиноград</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >СКО</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Опорные школы</a
+                  >
+                </div>
+              </details>
+            </div>
+          </details>
           <a
             href="#contacts"
             data-close
