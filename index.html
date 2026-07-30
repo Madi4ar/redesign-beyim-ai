@@ -17,17 +17,17 @@
           extend: {
             colors: {
               navy: {
-                DEFAULT: "#0B1F3A",
-                800: "#122A4A",
-                900: "#071528",
+                DEFAULT: "#111111",
+                800: "#1A1A1A",
+                900: "#000000",
               },
               brand: {
-                teal: "#00A99D",
-                tealDark: "#008F85",
+                teal: "#18999D",
+                tealDark: "#045D60",
                 green: "#22A06B",
                 blue: "#2F6FED",
                 purple: "#7B6CF6",
-                orange: "#F08A3C",
+                orange: "#FB8F67",
                 cyan: "#1BB8C8",
                 mint: "#2BBBAD",
               },
@@ -36,8 +36,8 @@
               sans: ["Montserrat", "system-ui", "sans-serif"],
             },
             boxShadow: {
-              card: "0 8px 30px rgba(15, 37, 64, 0.08)",
-              soft: "0 4px 20px rgba(15, 37, 64, 0.06)",
+              card: "0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06)",
+              soft: "0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06)",
             },
             borderRadius: {
               "4xl": "2rem",
@@ -48,6 +48,25 @@
       };
     </script>
     <style>
+      :root {
+        --color-primary: #18999d;
+        --color-primary-dark: #045d60;
+        --color-accent: #fb8f67;
+        --gradient-primary: linear-gradient(
+          135deg,
+          #045d60 0%,
+          #18999d 100%
+        );
+        --gradient-primary-hover: linear-gradient(
+          315deg,
+          #045d60 0%,
+          #18999d 100%
+        );
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+          0 2px 4px rgba(0, 0, 0, 0.06);
+        --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+
       html {
         scroll-behavior: smooth;
       }
@@ -143,6 +162,224 @@
       }
       details.nav-group .nav-chevron {
         transition: transform 0.2s ease;
+      }
+
+      /* ——— Contrast: text ——— */
+      main .text-navy,
+      footer .text-navy,
+      header .text-navy,
+      aside .text-navy {
+        color: #111111 !important;
+      }
+
+      main p:not([class*="text-brand"]):not([class*="text-[#"]),
+      main .text-slate-400,
+      main .text-slate-500,
+      main .text-slate-600,
+      footer .text-slate-400,
+      footer .text-slate-500,
+      footer p,
+      #path [class*="text-slate"],
+      #products [class*="text-slate"],
+      #events [class*="text-slate"],
+      [class*="text-navy/80"],
+      [class*="text-navy\/80"] {
+        color: #1a1a1a !important;
+      }
+
+      span.bg-emerald-500,
+      span.bg-violet-500,
+      span.bg-blue-500,
+      span.bg-orange-500,
+      a.bg-brand-teal,
+      a.bg-navy,
+      .bg-navy.text-white,
+      button.bg-brand-teal {
+        color: #fff !important;
+      }
+
+      .text-brand-teal {
+        color: var(--color-primary) !important;
+      }
+
+      .text-emerald-600 {
+        color: #059669 !important;
+      }
+      .text-violet-600 {
+        color: #7c3aed !important;
+      }
+      .text-blue-600 {
+        color: #2563eb !important;
+      }
+
+      /* ——— Primary buttons: gradient ——— */
+      a.bg-brand-teal.rounded-xl,
+      a.bg-brand-teal[class*="rounded-xl"],
+      a[class*="bg-[#2EC4B6]"].rounded-xl,
+      a[class*="bg-[#2EC4B6]"][class*="rounded-xl"],
+      #langPopup .lang-option.bg-brand-teal {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #fff !important;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: filter 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      a.bg-brand-teal.rounded-xl:hover,
+      a.bg-brand-teal[class*="rounded-xl"]:hover,
+      a[class*="bg-[#2EC4B6]"].rounded-xl:hover,
+      a[class*="bg-[#2EC4B6]"][class*="rounded-xl"]:hover {
+        background: var(--gradient-primary-hover) !important;
+        background-color: transparent !important;
+        filter: brightness(1.05);
+      }
+
+      a.bg-brand-teal.rounded-xl:hover::after,
+      a[class*="bg-[#2EC4B6]"][class*="rounded-xl"]:hover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+
+      /* ——— Sidebar: active + hover ——— */
+      aside.hidden.lg\:flex nav > a.bg-navy,
+      aside nav > a.bg-navy,
+      #mobileNav nav > a.bg-navy {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #ffffff !important;
+      }
+
+      aside nav > a.bg-navy svg,
+      #mobileNav nav > a.bg-navy svg {
+        color: #ffffff !important;
+        stroke: currentColor !important;
+      }
+
+      aside nav > a:not(.bg-navy):hover,
+      aside nav details.nav-group > summary:hover {
+        background: rgba(24, 153, 157, 0.08) !important;
+      }
+
+      /* ——— Accent #FB8F67: news badge ——— */
+      #events .grid > article:nth-child(4) .absolute.top-3 span,
+      #events .grid > article:nth-child(4) span.bg-orange-500 {
+        background: var(--color-accent) !important;
+        color: #fff !important;
+      }
+
+      #events .grid > article:nth-child(4) {
+        border: 1px solid rgba(251, 143, 103, 0.45) !important;
+      }
+
+      /* Accent: stats — 1 500 000+ and icon */
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(4)
+        [class*="font-extrabold"] {
+        color: var(--color-accent) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(4) span svg path {
+        fill: var(--color-accent) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(4) > span {
+        background: rgba(251, 143, 103, 0.15) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(4) {
+        border: 1px solid rgba(251, 143, 103, 0.4) !important;
+      }
+
+      /* Accent: underline on «Директорам» card */
+      main section .grid[class*="md:grid-cols-3"] > article:nth-child(2)
+        [class*="h-[3px]"] {
+        background: var(--color-accent) !important;
+      }
+
+      /* ——— Contrast: card shadow ——— */
+      #home .shadow-card,
+      #path,
+      #products article,
+      #events article,
+      main section article[class*="min-h-[520px]"],
+      main section div[class*="min-h-[168px]"],
+      #langPopup {
+        box-shadow: var(--card-shadow) !important;
+      }
+
+      #products article,
+      #events article,
+      main section article[class*="min-h-[520px]"],
+      main section div[class*="min-h-[168px]"] {
+        transition: box-shadow 0.2s ease;
+      }
+
+      #products article:hover,
+      #events article:hover,
+      main section article[class*="min-h-[520px]"]:hover,
+      main section div[class*="min-h-[168px]"]:hover {
+        box-shadow: var(--card-shadow-hover) !important;
+      }
+
+      /* ——— Contrast: accent borders ——— */
+      #products .grid > article:nth-child(1) {
+        border: 1px solid rgba(34, 160, 107, 0.38) !important;
+      }
+      #products .grid > article:nth-child(2) {
+        border: 1px solid rgba(123, 108, 246, 0.38) !important;
+      }
+      #products .grid > article:nth-child(3) {
+        border: 1px solid rgba(47, 111, 237, 0.38) !important;
+      }
+      #products .grid > article:nth-child(4) {
+        border: 1px solid rgba(240, 138, 60, 0.38) !important;
+      }
+      #products .grid > article:nth-child(5) {
+        border: 1px solid rgba(0, 169, 157, 0.38) !important;
+      }
+
+      main section .grid[class*="md:grid-cols-3"] > article:nth-child(1) {
+        border: 1px solid rgba(34, 160, 107, 0.38) !important;
+      }
+      main section .grid[class*="md:grid-cols-3"] > article:nth-child(2) {
+        border: 1px solid rgba(37, 99, 235, 0.38) !important;
+      }
+      main section .grid[class*="md:grid-cols-3"] > article:nth-child(3) {
+        border: 1px solid rgba(124, 58, 237, 0.38) !important;
+      }
+
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(1) {
+        border: 1px solid rgba(46, 196, 182, 0.4) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(2) {
+        border: 1px solid rgba(37, 99, 235, 0.4) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(3) {
+        border: 1px solid rgba(13, 148, 136, 0.4) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(4) {
+        border: 1px solid rgba(124, 58, 237, 0.4) !important;
+      }
+      main section div[class*="xl:grid-cols-5"] > div:nth-child(5) {
+        border: 1px solid rgba(46, 196, 182, 0.4) !important;
+      }
+
+      #events .grid > article:nth-child(1) {
+        border: 1px solid rgba(16, 185, 129, 0.4) !important;
+      }
+      #events .grid > article:nth-child(2) {
+        border: 1px solid rgba(139, 92, 246, 0.4) !important;
+      }
+      #events .grid > article:nth-child(3) {
+        border: 1px solid rgba(59, 130, 246, 0.4) !important;
+      }
+      #events .grid > article:nth-child(4) {
+        border: 1px solid rgba(249, 115, 22, 0.4) !important;
+      }
+
+      #path {
+        border-color: #e5e7eb !important;
       }
     </style>
   </head>
@@ -1664,7 +1901,7 @@
               <article
                 class="relative bg-white rounded-[28px] shadow-[0_12px_40px_rgba(15,37,64,0.08)] border border-slate-100 overflow-hidden flex flex-col min-h-[520px]"
               >
-                <div class="relative z-10 p-8 pb-4 flex-1 flex flex-col">
+                <div class="relative z-10 p-8 pb-52 flex-1 flex flex-col">
                   <div class="flex items-center gap-3.5">
                     <span
                       class="w-12 h-12 rounded-full bg-[#E8F6EE] flex items-center justify-center shrink-0"
@@ -1823,84 +2060,17 @@
                   >
                 </div>
                 <div
-                  class="absolute bottom-0 right-0 w-[70%] h-40 pointer-events-none"
+                  class="absolute bottom-0 right-0 w-[90%] h-52 pointer-events-none"
                   aria-hidden="true"
                 >
                   <div
-                    class="absolute inset-0 bg-gradient-to-tl from-[#E8F6EE] via-[#E8F6EE]/60 to-transparent"
+                    class="absolute inset-0 bg-gradient-to-tl from-[#E8F6EE] via-[#E8F6EE]/70 to-transparent"
                   ></div>
-                  <svg
-                    viewBox="0 0 220 140"
-                    class="absolute bottom-0 right-0 w-full h-full"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="40"
-                      cy="120"
-                      rx="28"
-                      ry="14"
-                      fill="#86efac"
-                      opacity=".45"
-                    />
-                    <ellipse
-                      cx="190"
-                      cy="118"
-                      rx="30"
-                      ry="16"
-                      fill="#86efac"
-                      opacity=".4"
-                    />
-                    <path
-                      d="M20 120c8-35 22-55 38-62 4 18 10 42 6 62"
-                      fill="#4ade80"
-                      opacity=".55"
-                    />
-                    <path
-                      d="M200 120c-8-30-20-48-36-55 2 16 6 38 8 55"
-                      fill="#22c55e"
-                      opacity=".5"
-                    />
-                    <rect
-                      x="58"
-                      y="48"
-                      width="120"
-                      height="78"
-                      rx="10"
-                      fill="#22A06B"
-                    />
-                    <rect
-                      x="66"
-                      y="56"
-                      width="104"
-                      height="52"
-                      rx="5"
-                      fill="#ecfdf5"
-                    />
-                    <rect
-                      x="76"
-                      y="66"
-                      width="42"
-                      height="7"
-                      rx="2"
-                      fill="#6ee7b7"
-                    />
-                    <rect
-                      x="76"
-                      y="80"
-                      width="58"
-                      height="7"
-                      rx="2"
-                      fill="#a7f3d0"
-                    />
-                    <rect
-                      x="76"
-                      y="94"
-                      width="32"
-                      height="7"
-                      rx="2"
-                      fill="#6ee7b7"
-                    />
-                  </svg>
+                  <img
+                    src="assets/audience-teachers.png?v=2"
+                    alt=""
+                    class="absolute bottom-0 right-0 w-full h-full object-contain object-bottom drop-shadow-sm"
+                  />
                 </div>
               </article>
 
@@ -1908,7 +2078,7 @@
               <article
                 class="relative bg-white rounded-[28px] shadow-[0_12px_40px_rgba(15,37,64,0.08)] border border-slate-100 overflow-hidden flex flex-col min-h-[520px]"
               >
-                <div class="relative z-10 p-8 pb-4 flex-1 flex flex-col">
+                <div class="relative z-10 p-8 pb-52 flex-1 flex flex-col">
                   <div class="flex items-center gap-3.5">
                     <span
                       class="w-12 h-12 rounded-full bg-[#EBF1FE] flex items-center justify-center shrink-0"
@@ -2075,81 +2245,17 @@
                   >
                 </div>
                 <div
-                  class="absolute bottom-0 right-0 w-[70%] h-40 pointer-events-none"
+                  class="absolute bottom-0 right-0 w-[90%] h-52 pointer-events-none"
                   aria-hidden="true"
                 >
                   <div
-                    class="absolute inset-0 bg-gradient-to-tl from-[#EBF1FE] via-[#EBF1FE]/60 to-transparent"
+                    class="absolute inset-0 bg-gradient-to-tl from-[#EBF1FE] via-[#EBF1FE]/70 to-transparent"
                   ></div>
-                  <svg
-                    viewBox="0 0 220 140"
-                    class="absolute bottom-0 right-0 w-full h-full"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="35"
-                      cy="120"
-                      rx="26"
-                      ry="12"
-                      fill="#93c5fd"
-                      opacity=".45"
-                    />
-                    <ellipse
-                      cx="190"
-                      cy="118"
-                      rx="28"
-                      ry="14"
-                      fill="#93c5fd"
-                      opacity=".4"
-                    />
-                    <path
-                      d="M18 120c7-28 18-48 32-55 3 16 8 38 5 55"
-                      fill="#60a5fa"
-                      opacity=".5"
-                    />
-                    <path
-                      d="M205 120c-8-26-18-42-32-48 2 14 5 34 7 48"
-                      fill="#3b82f6"
-                      opacity=".45"
-                    />
-                    <rect
-                      x="55"
-                      y="42"
-                      width="125"
-                      height="82"
-                      rx="10"
-                      fill="#2563EB"
-                    />
-                    <rect
-                      x="63"
-                      y="50"
-                      width="109"
-                      height="54"
-                      rx="5"
-                      fill="#eff6ff"
-                    />
-                    <rect x="74" y="82" width="14" height="14" fill="#3b82f6" />
-                    <rect x="94" y="70" width="14" height="26" fill="#60a5fa" />
-                    <rect
-                      x="114"
-                      y="58"
-                      width="14"
-                      height="38"
-                      fill="#2563EB"
-                    />
-                    <rect
-                      x="134"
-                      y="66"
-                      width="14"
-                      height="30"
-                      fill="#3b82f6"
-                    />
-                    <circle cx="165" cy="68" r="14" fill="#bfdbfe" />
-                    <path
-                      d="M165 68 L165 58 A10 10 0 0 1 173 72 Z"
-                      fill="#2563EB"
-                    />
-                  </svg>
+                  <img
+                    src="assets/audience-directors.png?v=2"
+                    alt=""
+                    class="absolute bottom-0 right-0 w-full h-full object-contain object-bottom drop-shadow-sm"
+                  />
                 </div>
               </article>
 
@@ -2157,7 +2263,7 @@
               <article
                 class="relative bg-white rounded-[28px] shadow-[0_12px_40px_rgba(15,37,64,0.08)] border border-slate-100 overflow-hidden flex flex-col min-h-[520px]"
               >
-                <div class="relative z-10 p-8 pb-4 flex-1 flex flex-col">
+                <div class="relative z-10 p-8 pb-52 flex-1 flex flex-col">
                   <div class="flex items-start gap-3.5">
                     <span
                       class="w-12 h-12 rounded-full bg-[#F3EEFF] flex items-center justify-center shrink-0 mt-0.5"
@@ -2316,86 +2422,17 @@
                   >
                 </div>
                 <div
-                  class="absolute bottom-0 right-0 w-[70%] h-40 pointer-events-none"
+                  class="absolute bottom-0 right-0 w-[90%] h-52 pointer-events-none"
                   aria-hidden="true"
                 >
                   <div
-                    class="absolute inset-0 bg-gradient-to-tl from-[#F3EEFF] via-[#F3EEFF]/60 to-transparent"
+                    class="absolute inset-0 bg-gradient-to-tl from-[#F3EEFF] via-[#F3EEFF]/70 to-transparent"
                   ></div>
-                  <svg
-                    viewBox="0 0 220 140"
-                    class="absolute bottom-0 right-0 w-full h-full"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="40"
-                      cy="120"
-                      rx="26"
-                      ry="12"
-                      fill="#c4b5fd"
-                      opacity=".45"
-                    />
-                    <ellipse
-                      cx="185"
-                      cy="118"
-                      rx="28"
-                      ry="14"
-                      fill="#c4b5fd"
-                      opacity=".4"
-                    />
-                    <path
-                      d="M22 120c7-30 18-50 32-56 3 16 7 38 5 56"
-                      fill="#a78bfa"
-                      opacity=".5"
-                    />
-                    <path
-                      d="M200 120c-8-28-18-44-32-50 2 14 5 34 7 50"
-                      fill="#8b5cf6"
-                      opacity=".45"
-                    />
-                    <rect
-                      x="70"
-                      y="52"
-                      width="90"
-                      height="62"
-                      rx="10"
-                      fill="#7C3AED"
-                    />
-                    <rect
-                      x="78"
-                      y="60"
-                      width="74"
-                      height="42"
-                      rx="5"
-                      fill="#f5f3ff"
-                    />
-                    <polyline
-                      points="86,90 100,78 114,84 130,68 146,74"
-                      fill="none"
-                      stroke="#7C3AED"
-                      stroke-width="2.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <circle
-                      cx="155"
-                      cy="58"
-                      r="20"
-                      fill="none"
-                      stroke="#c4b5fd"
-                      stroke-width="5"
-                    />
-                    <circle cx="155" cy="58" r="7" fill="#8b5cf6" />
-                    <line
-                      x1="170"
-                      y1="72"
-                      x2="185"
-                      y2="88"
-                      stroke="#a78bfa"
-                      stroke-width="5"
-                      stroke-linecap="round"
-                    />
-                  </svg>
+                  <img
+                    src="assets/audience-edu-mgmt.png?v=2"
+                    alt=""
+                    class="absolute bottom-0 right-0 w-full h-full object-contain object-bottom drop-shadow-sm"
+                  />
                 </div>
               </article>
             </div>
