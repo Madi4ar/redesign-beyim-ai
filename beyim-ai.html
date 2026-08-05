@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyim AI — ИИ-помощники для учителя | Beyim Ustaz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: { DEFAULT: "#111111", 800: "#1A1A1A", 900: "#000000" },
+              brand: {
+                teal: "#18999D",
+                tealDark: "#045D60",
+                green: "#22A06B",
+                blue: "#2F6FED",
+                purple: "#7B6CF6",
+                orange: "#FB8F67",
+                cyan: "#1BB8C8",
+                mint: "#2BBBAD",
+              },
+            },
+            fontFamily: { sans: ["Montserrat", "system-ui", "sans-serif"] },
+            boxShadow: {
+              card: "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06)",
+              soft: "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06)",
+            },
+            borderRadius: { "4xl": "2rem", "5xl": "2.5rem" },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --color-primary: #18999d;
+        --color-primary-dark: #045d60;
+        --color-accent: #fb8f67;
+        --gradient-primary: linear-gradient(135deg, #045d60 0%, #18999d 100%);
+        --gradient-primary-hover: linear-gradient(
+          315deg,
+          #045d60 0%,
+          #18999d 100%
+        );
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+          0 2px 4px rgba(0, 0, 0, 0.06);
+        --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #fff;
+      }
+      .sidebar-scroll::-webkit-scrollbar {
+        width: 0;
+      }
+      details.nav-group > summary {
+        list-style: none;
+      }
+      details.nav-group > summary::-webkit-details-marker {
+        display: none;
+      }
+      details.nav-group[open] > summary .nav-chevron {
+        transform: rotate(180deg);
+      }
+      details.nav-group .nav-chevron {
+        transition: transform 0.2s ease;
+      }
+      .script-underline {
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+      }
+      .learn-hero-gradient {
+        background: #eaf2fd;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 22px,
+          rgba(148, 180, 230, 0.18) 22px,
+          rgba(148, 180, 230, 0.18) 23px
+        );
+      }
+      .learn-hero-art {
+        /* teal sketch icons on transparent bg */
+      }
+      .ai-widget-bg {
+        background: linear-gradient(
+          145deg,
+          #f5f0ff 0%,
+          #f3f6ff 42%,
+          #eefaf4 100%
+        );
+      }
+      .category-scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .category-scroll::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+      @keyframes float-y {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .float-a {
+        animation: float-y 4s ease-in-out infinite;
+      }
+      .float-b {
+        animation: float-y 5s ease-in-out infinite 0.5s;
+      }
+      .float-c {
+        animation: float-y 4.5s ease-in-out infinite 1s;
+      }
+      main .text-navy,
+      footer .text-navy,
+      header .text-navy,
+      aside .text-navy {
+        color: #111111 !important;
+      }
+      .text-brand-teal {
+        color: var(--color-primary) !important;
+      }
+      a.bg-brand-teal.rounded-xl,
+      button.bg-brand-teal.rounded-xl,
+      #langPopup .lang-option.bg-brand-teal {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #fff !important;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: filter 0.2s ease;
+      }
+      a.bg-brand-teal.rounded-xl:hover,
+      button.bg-brand-teal.rounded-xl:hover {
+        background: var(--gradient-primary-hover) !important;
+        filter: brightness(1.05);
+      }
+      aside nav > a.bg-navy,
+      aside nav .border-l a.bg-navy,
+      #mobileNav nav > a.bg-navy,
+      #mobileNav nav .ml-3 a.bg-navy {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #ffffff !important;
+      }
+      aside nav > a:not(.bg-navy):hover,
+      aside nav details.nav-group > summary:not(.nav-active-group):hover {
+        background: rgba(24, 153, 157, 0.08) !important;
+      }
+      aside nav details.nav-group > summary.nav-active-group {
+        background: #045d60 !important;
+        color: #fff !important;
+      }
+      aside nav details.nav-group > summary.nav-active-group:hover {
+        background: #045d60 !important;
+        filter: brightness(1.05);
+      }
+      .course-card {
+        box-shadow: var(--card-shadow);
+        transition: box-shadow 0.2s ease;
+      }
+      .course-card:hover {
+        box-shadow: var(--card-shadow-hover);
+      }
+      .filter-tab-active {
+        background: var(--gradient-primary) !important;
+        color: #fff !important;
+      }
+      .trainer-av {
+        width: 26px;
+        height: 26px;
+        border-radius: 9999px;
+        border: 2px solid #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.02em;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .trainer-av.av-1 { background: #045d60; }
+      .trainer-av.av-2 { background: #0d7a7d; }
+      .trainer-av.av-3 { background: #18999d; }
+      .trainer-av.av-4 { background: #4cb5b8; }
+      a.trainers-link:hover .trainer-av {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(4, 93, 96, 0.35);
+      }
+      a.trainers-link:hover .trainers-count {
+        color: var(--color-primary);
+      }
+      .fav-btn {
+        color: #cbd5e1;
+        transition: color 0.15s ease;
+      }
+      .fav-btn:hover,
+      .fav-btn.is-active {
+        color: #fb8f67;
+      }
+      .fav-btn.is-active svg {
+        fill: #fb8f67;
+      }
+      .bubble-icon {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(186, 214, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body class="font-sans text-navy antialiased">
+    <div class="min-h-screen flex bg-white">
+      <!-- SIDEBAR -->
+      <aside
+        class="hidden lg:flex w-[232px] shrink-0 flex-col border-r border-slate-100 bg-white px-4 py-5 sticky top-0 h-screen sidebar-scroll overflow-y-auto"
+      >
+        <a href="index.html" class="flex flex-col items-start gap-1 px-2 mb-6">
+          <div class="flex items-center gap-2">
+            <img
+              src="assets/logo.png"
+              alt="Beyim Ustaz"
+              class="h-11 w-auto max-w-[4.5rem] object-contain rounded-md"
+            />
+          </div>
+          <span class="text-[15px] font-bold text-navy leading-tight mt-1"
+            >Beyim Ustaz</span
+          >
+        </a>
+        <nav class="flex flex-col gap-1 text-[13.5px] font-medium">
+          <a
+            href="index.html"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"
+              />
+            </svg>
+            Главная
+          </a>
+          <a
+            href="index.html#courses"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              />
+            </svg>
+            Витрина курсов
+          </a>
+          <a
+            href="index.html#events"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            Мероприятия
+          </a>
+          <details class="nav-group" open>
+            <summary
+              class="nav-active-group flex items-center justify-between rounded-xl bg-[#045D60] text-white px-3.5 py-2.5 transition cursor-pointer"
+            >
+              <span class="flex items-center gap-3">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                </svg>
+                Продукты
+              </span>
+              <svg
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
+            >
+              <a
+                href="beyim-learn.html"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim Learn</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim School</a
+              >
+              <a
+                href="beyim-ai.html"
+                class="rounded-lg px-3 py-2 text-brand-teal font-semibold bg-brand-teal/10"
+                >Beyim AI</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
+          <a
+            href="index.html#community"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            Сообщество
+          </a>
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition cursor-pointer"
+            >
+              <span class="flex items-center gap-3">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M11 17H13V11H11V17ZM12.713 8.713C12.9043 8.521 13 8.28333 13 8C13 7.71667 12.904 7.47933 12.712 7.288C12.52 7.09667 12.2827 7.00067 12 7C11.7173 6.99933 11.48 7.09533 11.288 7.288C11.096 7.48067 11 7.718 11 8C11 8.282 11.096 8.51967 11.288 8.713C11.48 8.90633 11.7173 9.002 12 9C12.2827 8.998 12.5203 8.902 12.713 8.712M12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88334 20.6867 5.825 19.9743 4.925 19.075C4.025 18.1757 3.31267 17.1173 2.788 15.9C2.26333 14.6827 2.00067 13.3827 2 12C1.99933 10.6173 2.262 9.31733 2.788 8.1C3.314 6.88267 4.02633 5.82433 4.925 4.925C5.82367 4.02567 6.882 3.31333 8.1 2.788C9.318 2.26267 10.618 2 12 2C13.382 2 14.682 2.26267 15.9 2.788C17.118 3.31333 18.1763 4.02567 19.075 4.925C19.9737 5.82433 20.6863 6.88267 21.213 8.1C21.7397 9.31733 22.002 10.6173 22 12C21.998 13.3827 21.7353 14.6827 21.212 15.9C20.6887 17.1173 19.9763 18.1757 19.075 19.075C18.1737 19.9743 17.1153 20.687 15.9 21.213C14.6847 21.739 13.3847 22.0013 12 22Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                О нас
+              </span>
+              <svg
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
+            >
+              <a
+                href="index.html#about"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >О компании</a
+              >
+              <a
+                href="trainer-profile.html"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Тренеры</a
+              >
+            </div>
+          </details>
+          <a
+            href="index.html#orgs"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+            </svg>
+            Для организаций
+          </a>
+        </nav>
+        <div class="mt-auto pt-8 px-2 space-y-3 text-[13px] text-slate-500">
+          <a href="#" class="block hover:text-brand-teal transition"
+            >Проверка сертификата</a
+          >
+          <a href="#" class="block hover:text-brand-teal transition"
+            >База знаний</a
+          >
+          <a href="#contacts" class="block hover:text-brand-teal transition"
+            >Контакты</a
+          >
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="flex-1 min-w-0 flex flex-col">
+        <header
+          class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100"
+        >
+          <div class="flex items-center gap-3 px-4 sm:px-6 lg:px-8 py-3">
+            <button
+              class="lg:hidden p-2 rounded-lg border border-slate-200"
+              id="menuBtn"
+              aria-label="Меню"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div class="flex-1 relative max-w-xl">
+              <svg
+                class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3-3" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Поиск по сайту"
+                class="w-full rounded-full bg-slate-100/80 border-0 pl-11 pr-4 py-2.5 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-teal/30"
+              />
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+              <div class="relative" id="langSwitch">
+                <button
+                  type="button"
+                  id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Выбор языка"
+                  class="inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-3 sm:px-3.5 py-2 hover:bg-brand-teal/5 transition"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18" />
+                    <path
+                      d="M12 3a14.5 14.5 0 0 1 0 18 14.5 14.5 0 0 1 0-18z"
+                    />
+                  </svg>
+                  <span id="langLabel">Рус</span>
+                  <svg
+                    id="langChevron"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    viewBox="0 0 24 24"
+                    class="transition-transform"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  id="langPopup"
+                  role="listbox"
+                  aria-label="Языки"
+                  class="hidden absolute right-0 top-[calc(100%+8px)] z-50 min-w-[168px] rounded-xl border border-brand-teal/20 bg-white py-1.5 shadow-card"
+                >
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="kk"
+                    data-label="Қаз"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    Қазақша
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="ru"
+                    data-label="Рус"
+                    aria-selected="true"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal"
+                  >
+                    Русский
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="en"
+                    data-label="Eng"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    English
+                  </button>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="hidden sm:inline-flex items-center justify-center rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-5 py-2 hover:bg-brand-teal/5 transition"
+                >Вход</a
+              >
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:bg-brand-tealDark transition shadow-sm"
+                >Регистрация</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-6 pb-16 space-y-8">
+
+          <!-- Hero -->
+          <section class="w-full">
+            <div class="rounded-[28px] bg-[#E8F0FE] px-6 sm:px-10 lg:px-12 py-8 sm:py-10 lg:py-12 overflow-hidden relative">
+              <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
+                <div class="lg:col-span-8 min-w-0">
+                  <h1 class="text-[26px] sm:text-[32px] lg:text-[36px] font-extrabold text-[#0B3A4A] leading-tight tracking-tight">
+                    Beyim AI — ваш персональный ИИ-эксперт в образовании
+                  </h1>
+                  <p class="mt-4 sm:mt-5 text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-2xl">
+                    Берёт на себя рутину: планирование уроков, создание материалов, проверку работ и аналитику —
+                    экономит часы каждую неделю.
+                  </p>
+                </div>
+                <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                  <img
+                    src="assets/beyim-ai/robot.png"
+                    alt="Beyim AI"
+                    class="w-[180px] sm:w-[220px] lg:w-[240px] h-auto object-contain select-none"
+                    draggable="false"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Agents -->
+          <section class="w-full">
+            <div class="mb-5">
+              <h2 class="text-[22px] sm:text-[26px] font-extrabold text-[#045D60] leading-tight">
+                6 ИИ-помощников Beyim для учителя
+              </h2>
+              <p class="mt-1.5 text-sm sm:text-[15px] text-slate-500">
+                Ваш персональный педагогический помощник на каждый день
+              </p>
+            </div>
+
+            <div class="rounded-[28px] bg-[#E8F7F5] p-5 sm:p-7 lg:p-8">
+              <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/lesson.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Lesson</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Готовый календарно-тематический план по программе и часам за пару минут.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/tapqyr.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Tapqyr</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Свежие сценарии и активности под тему, возраст и цель урока.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/studio.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Studio</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Карточки, тесты и раздаточные материалы под любую тему за минуту.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/bagalau.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Bagalau</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Проверка работ и объективные оценки по заданным критериям без рутины.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/qoldau.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Qoldau</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Персональные подсказки и поддержка учителя на каждом этапе работы.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-white flex flex-col gap-5">
+                  <div class="flex items-start gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center" aria-hidden="true">
+                      <img src="assets/beyim-ai/insight.png" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-contain"/>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="font-bold text-[16px] text-[#045D60]">Beyim Insight</h3>
+                      <p class="mt-1.5 text-[13px] text-slate-500 leading-relaxed">Прогресс каждого ученика в динамике, сводная статистика класса.</p>
+                    </div>
+                  </div>
+                  <a href="#" class="mt-auto inline-flex items-center justify-center w-full rounded-xl border border-brand-teal text-brand-teal font-semibold text-sm py-2.5 hover:bg-brand-teal hover:text-white transition">Перейти</a>
+                </article>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Goals / stats -->
+          <section class="w-full">
+            <div class="rounded-[28px] bg-[#E6F4F8] px-5 sm:px-8 lg:px-12 py-10 sm:py-12">
+              <h2 class="text-center text-[18px] sm:text-[22px] lg:text-[24px] font-extrabold text-[#045D60] leading-snug max-w-4xl mx-auto">
+                Главная цель Beyim AI: сэкономить ваше время, снизить нагрузку и повысить качество преподавания
+              </h2>
+
+              <div class="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
+                <div class="text-center px-3 lg:px-6 lg:border-r lg:border-[#045D60]/15">
+                  <div class="flex justify-center text-[#045D60]" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+                  </div>
+                  <div class="mt-3 text-[28px] sm:text-[32px] font-extrabold text-[#045D60] leading-none">12</div>
+                  <div class="mt-2 text-[12px] sm:text-[13px] text-[#045D60]/80 leading-snug">ИИ-инструментов<br class="hidden sm:block"/> для учителя</div>
+                </div>
+                <div class="text-center px-3 lg:px-6 lg:border-r lg:border-[#045D60]/15">
+                  <div class="flex justify-center text-[#045D60]" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </div>
+                  <div class="mt-3 text-[28px] sm:text-[32px] font-extrabold text-[#045D60] leading-none">до 10 ч</div>
+                  <div class="mt-2 text-[12px] sm:text-[13px] text-[#045D60]/80 leading-snug">экономии<br class="hidden sm:block"/> каждую неделю</div>
+                </div>
+                <div class="text-center px-3 lg:px-6 lg:border-r lg:border-[#045D60]/15">
+                  <div class="flex justify-center text-[#045D60]" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+                  </div>
+                  <div class="mt-3 text-[28px] sm:text-[32px] font-extrabold text-[#045D60] leading-none">24/7</div>
+                  <div class="mt-2 text-[12px] sm:text-[13px] text-[#045D60]/80 leading-snug">доступ<br class="hidden sm:block"/> без выходных</div>
+                </div>
+                <div class="text-center px-3 lg:px-6">
+                  <div class="flex justify-center text-[#045D60]" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+                  </div>
+                  <div class="mt-3 text-[28px] sm:text-[32px] font-extrabold text-[#045D60] leading-none">100%</div>
+                  <div class="mt-2 text-[12px] sm:text-[13px] text-[#045D60]/80 leading-snug">онлайн, с любого<br class="hidden sm:block"/> устройства</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer
+          id="contacts"
+          class="relative bg-slate-50 border-t border-slate-100 mt-4 overflow-hidden"
+        >
+          <div
+            class="absolute left-0 bottom-0 w-64 h-40 bg-teal-100/40 rounded-full blur-3xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute right-0 bottom-0 w-64 h-40 bg-violet-100/30 rounded-full blur-3xl pointer-events-none"
+          ></div>
+
+          <div class="relative px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-10">
+              <!-- Brand -->
+              <div>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="assets/logo.png"
+                    alt="Beyim Ustaz"
+                    class="h-10 w-auto max-w-[4rem] object-contain rounded-md"
+                  />
+                  <span class="font-extrabold text-navy text-lg"
+                    >Beyim Ustaz</span
+                  >
+                </div>
+                <p
+                  class="mt-4 text-[13.5px] text-slate-500 leading-relaxed max-w-xs"
+                >
+                  Единая цифровая экосистема для профессионального роста
+                  педагогов, школ и системы образования.
+                </p>
+                <p class="script-underline mt-4 text-brand-teal text-lg">
+                  Вместе к лучшему образованию!
+                </p>
+                <div
+                  class="mt-1 h-0.5 w-40 bg-brand-teal/60 rounded-full"
+                ></div>
+                <div class="mt-5 flex items-center gap-2.5">
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="YouTube"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Instagram"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Facebook"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Telegram"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M21.5 3.5 2.8 11.2c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.7.4.9 1 .9.6 0 .8-.3 1.1-.6l2.7-2.6 5.6 4.1c1 .6 1.8.3 2-.9l3.5-16.5c.4-1.4-.5-2-1.6-1.6z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contacts -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-5">
+                  Контакты ЦПМ
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.1a16 16 0 0 0 6 6l.7-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.6 2z"
+                        />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Телефон</div>
+                      <div class="font-semibold text-navy text-sm">
+                        +7 (7172) 69-74-14
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7z" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">E-mail</div>
+                      <a
+                        href="mailto:info@cpm.kz"
+                        class="font-semibold text-brand-teal text-sm"
+                        >info@cpm.kz</a
+                      >
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"
+                        />
+                        <circle cx="12" cy="10" r="2.5" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Адрес</div>
+                      <div class="font-semibold text-navy text-sm leading-snug">
+                        г. Астана, ул. Хусейн бен Талал, 21/1
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Hours -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-5">
+                  Время работы
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Пн – Пт</div>
+                      <div class="font-semibold text-navy text-sm">
+                        08:30 – 17:30
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"
+                        />
+                        <path d="M6 2v2M10 2v2M14 2v2" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Перерыв</div>
+                      <div class="font-semibold text-navy text-sm">
+                        12:30 – 13:30
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- App -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-3 leading-snug">
+                  Мобильное приложение Beyim Ustaz
+                </h3>
+                <p class="text-[13px] text-slate-500 mb-4">
+                  Скачайте приложение и учитесь в любое время и в любом месте.
+                </p>
+                <div class="flex gap-4 items-start">
+                  <div class="flex flex-col gap-2">
+                    <a
+                      href="#"
+                      class="inline-flex items-center gap-2 bg-black text-white rounded-lg px-3 py-2 text-xs hover:bg-slate-800 transition"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18.7 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.9zM15.5 5.2c.6-.8 1.1-1.9.9-3-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 2.9-1.4z"
+                        />
+                      </svg>
+                      <span
+                        ><span class="block text-[9px] opacity-80"
+                          >Download on the</span
+                        ><span class="font-semibold">App Store</span></span
+                      >
+                    </a>
+                    <a
+                      href="#"
+                      class="inline-flex items-center gap-2 bg-black text-white rounded-lg px-3 py-2 text-xs hover:bg-slate-800 transition"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3.6 2.2c-.3.2-.6.6-.6 1.1v17.4c0 .5.3.9.6 1.1l9.8-9.8L3.6 2.2zm11.3 6.4-2.2-1.2-7.7 7.7 7.7 7.7 2.2-1.2 4.1-2.3c.9-.5.9-1.8 0-2.3l-4.1-2.4zM14 12l2.8 1.6L20.1 12l-3.3-1.6L14 12z"
+                        />
+                      </svg>
+                      <span
+                        ><span class="block text-[9px] opacity-80"
+                          >GET IT ON</span
+                        ><span class="font-semibold">Google Play</span></span
+                      >
+                    </a>
+                  </div>
+                  <div
+                    class="bg-white rounded-xl border border-slate-200 p-2 text-center"
+                  >
+                    <div
+                      class="w-20 h-20 bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect fill=%27%23000%27 width=%27100%27 height=%27100%27/%3E%3Cpath fill=%27%23fff%27 d=%27M10 10h20v20H10zm30 0h20v20H40zm30 0h20v20H70zM10 40h20v20H10zm30 0h20v20H40zm30 0h20v20H70zM10 70h20v20H10zm30 0h20v20H40zm30 0h20v20H70z%27/%3E%3Crect fill=%27%23fff%27 x=%2740%27 y=%2740%27 width=%2720%27 height=%2720%27/%3E%3C/svg%3E')] bg-cover rounded-md"
+                    ></div>
+                    <p
+                      class="mt-1 text-[9px] text-slate-500 leading-tight max-w-[80px] mx-auto"
+                    >
+                      Сканируйте QR-код для установки
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-10 pt-6 border-t border-slate-200 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 text-sm"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                  </svg>
+                </span>
+                Пользовательское соглашение
+                <span class="text-brand-teal">›</span>
+              </a>
+              <span class="hidden lg:block w-px h-5 bg-slate-200"></span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+                Политика конфиденциальности
+                <span class="text-brand-teal">›</span>
+              </a>
+              <span class="hidden lg:block w-px h-5 bg-slate-200"></span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <path d="M14 2v6h6" />
+                  </svg>
+                </span>
+                Договор-оферта
+                <span class="text-brand-teal">›</span>
+              </a>
+            </div>
+
+            <div class="mt-8 text-center text-xs text-slate-400 space-y-1">
+              <p>© 2026 Beyim Ustaz, Центр педагогического мастерства</p>
+              <p>AI Educational Ecosystem by CPM NIS</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobileNav" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/40" data-close></div>
+      <aside
+        class="absolute left-0 top-0 bottom-0 w-72 bg-white p-5 shadow-xl overflow-y-auto"
+      >
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-bold text-navy">Beyim Ustaz</span>
+          <button
+            data-close
+            class="p-2 rounded-lg hover:bg-slate-100"
+            aria-label="Закрыть"
+          >
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          <a
+            href="index.html"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Главная</a
+          >
+          <a
+            href="index.html#courses"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Витрина курсов</a
+          >
+          <a
+            href="index.html#events"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Мероприятия</a
+          >
+          <details class="nav-group" open>
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>Продукты</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="beyim-learn.html"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim Learn</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim School</a
+              >
+              <a
+                href="beyim-ai.html"
+                data-close
+                class="rounded-lg px-3 py-2 text-brand-teal font-semibold bg-brand-teal/10"
+                >Beyim AI</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
+          <a
+            href="#path"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Проф. путь</a
+          >
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>О нас</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="#about"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >О компании</a
+              >
+              <a
+                href="trainer-profile.html"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Тренеры</a
+              >
+              <details class="nav-group">
+                <summary
+                  class="flex items-center justify-between rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50 cursor-pointer"
+                >
+                  <span>Проекты</span>
+                  <svg
+                    class="nav-chevron"
+                    width="12"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div class="ml-2 flex flex-col gap-0.5">
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Отпан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Кадровый резерв</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Түркістан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Таджикистан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Целиноград</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >СКО</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Опорные школы</a
+                  >
+                </div>
+              </details>
+            </div>
+          </details>
+          <a
+            href="#contacts"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Контакты</a
+          >
+        </nav>
+      </aside>
+    </div>
+
+    <script>
+      <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileNav = document.getElementById("mobileNav");
+        menuBtn?.addEventListener("click", () =>
+          mobileNav.classList.remove("hidden")
+        );
+        mobileNav?.querySelectorAll("[data-close]").forEach((el) => {
+          el.addEventListener("click", () => mobileNav.classList.add("hidden"));
+        });
+
+        const langSwitch = document.getElementById("langSwitch");
+        const langBtn = document.getElementById("langBtn");
+        const langPopup = document.getElementById("langPopup");
+        const langLabel = document.getElementById("langLabel");
+        const langChevron = document.getElementById("langChevron");
+        const langActive =
+          "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal";
+        const langIdle =
+          "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition";
+
+        function openLangPopup(open) {
+          langPopup?.classList.toggle("hidden", !open);
+          langBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+          langChevron?.classList.toggle("rotate-180", open);
+        }
+
+        function setLang(lang) {
+          langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+            const on = btn.getAttribute("data-lang") === lang;
+            btn.className = on ? langActive : langIdle;
+            if (on) {
+              btn.setAttribute("aria-selected", "true");
+              if (langLabel) langLabel.textContent = btn.getAttribute("data-label");
+            } else {
+              btn.removeAttribute("aria-selected");
+            }
+          });
+          document.documentElement.lang =
+            lang === "kk" ? "kk" : lang === "en" ? "en" : "ru";
+          try {
+            localStorage.setItem("beyim-lang", lang);
+          } catch (_) {}
+          openLangPopup(false);
+        }
+
+        langBtn?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openLangPopup(langPopup?.classList.contains("hidden"));
+        });
+
+        langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () =>
+            setLang(btn.getAttribute("data-lang"))
+          );
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!langSwitch?.contains(e.target)) openLangPopup(false);
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") openLangPopup(false);
+        });
+
+        try {
+          const saved = localStorage.getItem("beyim-lang");
+          if (saved && ["kk", "ru", "en"].includes(saved)) setLang(saved);
+        } catch (_) {}
+
+        document.querySelectorAll(".fav-btn").forEach((btn) => {
+          btn.addEventListener("click", () =>
+            btn.classList.toggle("is-active")
+          );
+        });
+    </script>
+  </body>
+</html>

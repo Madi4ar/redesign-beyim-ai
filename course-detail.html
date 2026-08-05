@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Подробнее о курсе — Beyim Learn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: { DEFAULT: "#111111", 800: "#1A1A1A", 900: "#000000" },
+              brand: {
+                teal: "#18999D",
+                tealDark: "#045D60",
+                green: "#22A06B",
+                blue: "#2F6FED",
+                purple: "#7B6CF6",
+                orange: "#FB8F67",
+                cyan: "#1BB8C8",
+                mint: "#2BBBAD",
+              },
+            },
+            fontFamily: { sans: ["Montserrat", "system-ui", "sans-serif"] },
+            boxShadow: {
+              card: "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06)",
+              soft: "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.06)",
+            },
+            borderRadius: { "4xl": "2rem", "5xl": "2.5rem" },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --color-primary: #18999d;
+        --color-primary-dark: #045d60;
+        --color-accent: #fb8f67;
+        --gradient-primary: linear-gradient(135deg, #045d60 0%, #18999d 100%);
+        --gradient-primary-hover: linear-gradient(
+          315deg,
+          #045d60 0%,
+          #18999d 100%
+        );
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08),
+          0 2px 4px rgba(0, 0, 0, 0.06);
+        --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #fff;
+      }
+      .sidebar-scroll::-webkit-scrollbar {
+        width: 0;
+      }
+      details.nav-group > summary {
+        list-style: none;
+      }
+      details.nav-group > summary::-webkit-details-marker {
+        display: none;
+      }
+      details.nav-group[open] > summary .nav-chevron {
+        transform: rotate(180deg);
+      }
+      details.nav-group .nav-chevron {
+        transition: transform 0.2s ease;
+      }
+      .script-underline {
+        font-family: "Segoe Script", "Brush Script MT", cursive;
+      }
+      .learn-hero-gradient {
+        background: #eaf2fd;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 22px,
+          rgba(148, 180, 230, 0.18) 22px,
+          rgba(148, 180, 230, 0.18) 23px
+        );
+      }
+      .learn-hero-art {
+        /* teal sketch icons on transparent bg */
+      }
+      .ai-widget-bg {
+        background: linear-gradient(
+          145deg,
+          #f5f0ff 0%,
+          #f3f6ff 42%,
+          #eefaf4 100%
+        );
+      }
+      .category-scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .category-scroll::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+      @keyframes float-y {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .float-a {
+        animation: float-y 4s ease-in-out infinite;
+      }
+      .float-b {
+        animation: float-y 5s ease-in-out infinite 0.5s;
+      }
+      .float-c {
+        animation: float-y 4.5s ease-in-out infinite 1s;
+      }
+      main .text-navy,
+      footer .text-navy,
+      header .text-navy,
+      aside .text-navy {
+        color: #111111 !important;
+      }
+      .text-brand-teal {
+        color: var(--color-primary) !important;
+      }
+      a.bg-brand-teal.rounded-xl,
+      button.bg-brand-teal.rounded-xl,
+      #langPopup .lang-option.bg-brand-teal {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #fff !important;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: filter 0.2s ease;
+      }
+      a.bg-brand-teal.rounded-xl:hover,
+      button.bg-brand-teal.rounded-xl:hover {
+        background: var(--gradient-primary-hover) !important;
+        filter: brightness(1.05);
+      }
+      aside nav > a.bg-navy,
+      aside nav .border-l a.bg-navy,
+      #mobileNav nav > a.bg-navy,
+      #mobileNav nav .ml-3 a.bg-navy {
+        background: var(--gradient-primary) !important;
+        background-color: transparent !important;
+        color: #ffffff !important;
+      }
+      aside nav > a:not(.bg-navy):hover,
+      aside nav details.nav-group > summary:hover {
+        background: rgba(24, 153, 157, 0.08) !important;
+      }
+      .course-card {
+        box-shadow: var(--card-shadow);
+        transition: box-shadow 0.2s ease;
+      }
+      .course-card:hover {
+        box-shadow: var(--card-shadow-hover);
+      }
+      .filter-tab-active {
+        background: var(--gradient-primary) !important;
+        color: #fff !important;
+      }
+      .trainer-av {
+        width: 26px;
+        height: 26px;
+        border-radius: 9999px;
+        border: 2px solid #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.02em;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .trainer-av.av-1 { background: #045d60; }
+      .trainer-av.av-2 { background: #0d7a7d; }
+      .trainer-av.av-3 { background: #18999d; }
+      .trainer-av.av-4 { background: #4cb5b8; }
+      a.trainers-link:hover .trainer-av {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(4, 93, 96, 0.35);
+      }
+      a.trainers-link:hover .trainers-count {
+        color: var(--color-primary);
+      }
+      .fav-btn {
+        color: #cbd5e1;
+        transition: color 0.15s ease;
+      }
+      .fav-btn:hover,
+      .fav-btn.is-active {
+        color: #fb8f67;
+      }
+      .fav-btn.is-active svg {
+        fill: #fb8f67;
+      }
+      .bubble-icon {
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(186, 214, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body class="font-sans text-navy antialiased">
+    <div class="min-h-screen flex bg-white">
+      <!-- SIDEBAR -->
+      <aside
+        class="hidden lg:flex w-[232px] shrink-0 flex-col border-r border-slate-100 bg-white px-4 py-5 sticky top-0 h-screen sidebar-scroll overflow-y-auto"
+      >
+        <a href="index.html" class="flex flex-col items-start gap-1 px-2 mb-6">
+          <div class="flex items-center gap-2">
+            <img
+              src="assets/logo.png"
+              alt="Beyim Ustaz"
+              class="h-11 w-auto max-w-[4.5rem] object-contain rounded-md"
+            />
+          </div>
+          <span class="text-[15px] font-bold text-navy leading-tight mt-1"
+            >Beyim Ustaz</span
+          >
+        </a>
+        <nav class="flex flex-col gap-1 text-[13.5px] font-medium">
+          <a
+            href="index.html"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"
+              />
+            </svg>
+            Главная
+          </a>
+          <a
+            href="index.html#courses"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              />
+            </svg>
+            Витрина курсов
+          </a>
+          <a
+            href="index.html#events"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            Мероприятия
+          </a>
+          <details class="nav-group" open>
+            <summary
+              class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition cursor-pointer"
+            >
+              <span class="flex items-center gap-3">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  />
+                </svg>
+                Продукты
+              </span>
+              <svg
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
+            >
+              <a
+                href="beyim-learn.html"
+                class="rounded-lg px-3 py-2 bg-navy text-white font-medium"
+                >Beyim Learn</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim School</a
+              >
+              <a
+                href="beyim-ai.html"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim AI</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="index.html#products"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
+          <a
+            href="index.html#community"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            Сообщество
+          </a>
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition cursor-pointer"
+            >
+              <span class="flex items-center gap-3">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M11 17H13V11H11V17ZM12.713 8.713C12.9043 8.521 13 8.28333 13 8C13 7.71667 12.904 7.47933 12.712 7.288C12.52 7.09667 12.2827 7.00067 12 7C11.7173 6.99933 11.48 7.09533 11.288 7.288C11.096 7.48067 11 7.718 11 8C11 8.282 11.096 8.51967 11.288 8.713C11.48 8.90633 11.7173 9.002 12 9C12.2827 8.998 12.5203 8.902 12.713 8.712M12 22C10.6167 22 9.31667 21.7373 8.1 21.212C6.88334 20.6867 5.825 19.9743 4.925 19.075C4.025 18.1757 3.31267 17.1173 2.788 15.9C2.26333 14.6827 2.00067 13.3827 2 12C1.99933 10.6173 2.262 9.31733 2.788 8.1C3.314 6.88267 4.02633 5.82433 4.925 4.925C5.82367 4.02567 6.882 3.31333 8.1 2.788C9.318 2.26267 10.618 2 12 2C13.382 2 14.682 2.26267 15.9 2.788C17.118 3.31333 18.1763 4.02567 19.075 4.925C19.9737 5.82433 20.6863 6.88267 21.213 8.1C21.7397 9.31733 22.002 10.6173 22 12C21.998 13.3827 21.7353 14.6827 21.212 15.9C20.6887 17.1173 19.9763 18.1757 19.075 19.075C18.1737 19.9743 17.1153 20.687 15.9 21.213C14.6847 21.739 13.3847 22.0013 12 22Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                О нас
+              </span>
+              <svg
+                class="nav-chevron shrink-0"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div
+              class="ml-4 pl-4 border-l border-slate-100 flex flex-col gap-0.5 py-1 mb-1"
+            >
+              <a
+                href="index.html#about"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >О компании</a
+              >
+              <a
+                href="trainer-profile.html"
+                class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
+                >Тренеры</a
+              >
+            </div>
+          </details>
+          <a
+            href="index.html#orgs"
+            class="flex items-center gap-3 rounded-xl text-slate-600 hover:bg-slate-50 px-3.5 py-2.5 transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+            </svg>
+            Для организаций
+          </a>
+        </nav>
+        <div class="mt-auto pt-8 px-2 space-y-3 text-[13px] text-slate-500">
+          <a href="#" class="block hover:text-brand-teal transition"
+            >Проверка сертификата</a
+          >
+          <a href="#" class="block hover:text-brand-teal transition"
+            >База знаний</a
+          >
+          <a href="#contacts" class="block hover:text-brand-teal transition"
+            >Контакты</a
+          >
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="flex-1 min-w-0 flex flex-col">
+        <header
+          class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100"
+        >
+          <div class="flex items-center gap-3 px-4 sm:px-6 lg:px-8 py-3">
+            <button
+              class="lg:hidden p-2 rounded-lg border border-slate-200"
+              id="menuBtn"
+              aria-label="Меню"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div class="flex-1 relative max-w-xl">
+              <svg
+                class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3-3" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Поиск по сайту"
+                class="w-full rounded-full bg-slate-100/80 border-0 pl-11 pr-4 py-2.5 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-teal/30"
+              />
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+              <div class="relative" id="langSwitch">
+                <button
+                  type="button"
+                  id="langBtn"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-label="Выбор языка"
+                  class="inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-3 sm:px-3.5 py-2 hover:bg-brand-teal/5 transition"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18" />
+                    <path
+                      d="M12 3a14.5 14.5 0 0 1 0 18 14.5 14.5 0 0 1 0-18z"
+                    />
+                  </svg>
+                  <span id="langLabel">Рус</span>
+                  <svg
+                    id="langChevron"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    viewBox="0 0 24 24"
+                    class="transition-transform"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+                <div
+                  id="langPopup"
+                  role="listbox"
+                  aria-label="Языки"
+                  class="hidden absolute right-0 top-[calc(100%+8px)] z-50 min-w-[168px] rounded-xl border border-brand-teal/20 bg-white py-1.5 shadow-card"
+                >
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="kk"
+                    data-label="Қаз"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    Қазақша
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="ru"
+                    data-label="Рус"
+                    aria-selected="true"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal"
+                  >
+                    Русский
+                  </button>
+                  <button
+                    type="button"
+                    role="option"
+                    data-lang="en"
+                    data-label="Eng"
+                    class="lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition"
+                  >
+                    English
+                  </button>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="hidden sm:inline-flex items-center justify-center rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-5 py-2 hover:bg-brand-teal/5 transition"
+                >Вход</a
+              >
+              <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:bg-brand-tealDark transition shadow-sm"
+                >Регистрация</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-6 pb-16 space-y-6">
+<!-- Breadcrumbs -->
+      <div class="w-full pt-4 pb-3">
+        <div class="flex items-center gap-2 text-sm text-slate-500">
+          <a
+            href="beyim-learn.html"
+            class="inline-flex items-center gap-1 hover:text-brand-teal transition"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 19L3 12L10 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21 12H3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Назад
+          </a>
+          <span class="text-slate-300">/</span>
+          <a href="beyim-learn.html" class="hover:text-brand-teal transition"
+            >Beyim Learn</a
+          >
+          <span class="text-slate-300">/</span>
+          <a href="beyim-learn.html" class="hover:text-brand-teal transition"
+            >Каталог программ</a
+          >
+          <span class="text-slate-300">/</span>
+          <span class="text-slate-700 font-medium"
+            >ИИ-инструменты в педагогической практике</span
+          >
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="w-full pb-6">
+        <div class="rounded-[24px] border border-slate-100 shadow-soft bg-white p-5 sm:p-7 lg:p-8">
+          <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <div class="lg:col-span-7 flex flex-col">
+              <span
+                class="inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold"
+                style="background: #FEF3C7; color: #B45309;"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                Популярная программа
+              </span>
+
+              <h1 class="mt-4 text-[26px] sm:text-[32px] lg:text-[34px] font-extrabold leading-tight text-navy">
+                ИИ-инструменты в педагогической практике
+              </h1>
+
+              <p class="mt-3 text-sm sm:text-[15px] text-slate-500 leading-relaxed max-w-2xl">
+                Практико-ориентированная программа для педагогов, направленная
+                на повышение качества образования с использованием современных
+                цифровых и AI-инструментов.
+              </p>
+
+              <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-sm text-slate-600">
+                <span class="inline-flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 7v5l3 2"/>
+                  </svg>
+                  36 ак. часов
+                </span>
+                <span class="inline-flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <path d="M8 21h8M12 17v4"/>
+                  </svg>
+                  Онлайн-Оффлайн
+                </span>
+                <span class="inline-flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.11"/>
+                  </svg>
+                  Сертификат ЦПМ
+                </span>
+                <span class="inline-flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M3 12h18"/>
+                    <path d="M12 3a14.5 14.5 0 0 1 0 18"/>
+                    <path d="M12 3a14.5 14.5 0 0 0 0 18"/>
+                  </svg>
+                  Русский / Казахский
+                </span>
+              </div>
+
+              <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-0 border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/40">
+                <div class="px-4 py-3.5 sm:border-r border-slate-100">
+                  <div class="text-[28px] font-extrabold leading-none text-navy">4.9</div>
+                  <div class="mt-1.5 flex items-center gap-0.5" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  </div>
+                  <div class="mt-1 text-xs text-slate-500">Рейтинг</div>
+                </div>
+                <div class="px-4 py-3.5 sm:border-r border-slate-100 border-t sm:border-t-0 border-slate-100">
+                  <div class="text-[28px] font-extrabold leading-none text-navy">1 240</div>
+                  <div class="mt-2 text-xs text-slate-500 leading-snug">педагогов прошли<br />обучение</div>
+                </div>
+                <div class="px-4 py-3.5 sm:border-r border-slate-100 border-t sm:border-t-0 border-slate-100">
+                  <div class="text-[28px] font-extrabold leading-none text-navy">94%</div>
+                  <div class="mt-2 text-xs text-slate-500 leading-snug">рекомендуют<br />программу</div>
+                </div>
+                <div class="px-4 py-3.5 border-t sm:border-t-0 border-slate-100">
+                  <div class="text-[28px] font-extrabold leading-none text-navy">8</div>
+                  <div class="mt-2 text-xs text-slate-500 leading-snug">потоков открыто<br />для записи</div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+                <a
+                  href="#streams"
+                  class="inline-flex items-center justify-center rounded-xl bg-brand-teal text-white font-semibold text-sm px-6 py-3 shadow-sm hover:brightness-105 transition"
+                >
+                  Выбрать поток
+                </a>
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-brand-teal bg-white px-5 py-2.5 text-brand-teal font-semibold text-sm hover:bg-brand-teal/5 transition"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                  Добавить в избранное
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="h-full min-h-[260px] rounded-[22px] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&h=900&fit=crop"
+                  alt=""
+                  class="w-full h-full object-cover min-h-[260px] lg:min-h-[360px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 info cards -->
+      <section class="w-full pb-8">
+        <div class="rounded-[24px] bg-[#F0FDFD] p-4 sm:p-5 lg:p-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14.6668 19.25V17.4167C14.6668 16.4442 14.2805 15.5116 13.5929 14.8239C12.9053 14.1363 11.9726 13.75 11.0002 13.75H5.50016C4.5277 13.75 3.59507 14.1363 2.90744 14.8239C2.2198 15.5116 1.8335 16.4442 1.8335 17.4167V19.25" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.25016 10.0833C10.2752 10.0833 11.9168 8.44171 11.9168 6.41667C11.9168 4.39162 10.2752 2.75 8.25016 2.75C6.22512 2.75 4.5835 4.39162 4.5835 6.41667C4.5835 8.44171 6.22512 10.0833 8.25016 10.0833Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.1665 19.25V17.4166C20.1659 16.6042 19.8955 15.815 19.3978 15.1729C18.9 14.5308 18.2031 14.0722 17.4165 13.8691" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.6665 2.86914C15.4552 3.07108 16.1543 3.52978 16.6535 4.17293C17.1527 4.81607 17.4237 5.60707 17.4237 6.42122C17.4237 7.23538 17.1527 8.02638 16.6535 8.66952C16.1543 9.31266 15.4552 9.77136 14.6665 9.97331" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 class="mt-4 font-bold text-navy text-[15px] leading-snug">Для кого эта программа</h3>
+              <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                Педагоги школ, колледжей, методисты, заместители директора по учебной работе
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M19.9842 9.16654C20.4029 11.2211 20.1045 13.357 19.1389 15.2182C18.1733 17.0794 16.5989 18.5532 14.6781 19.3941C12.7573 20.2349 10.6064 20.3918 8.58391 19.8387C6.56144 19.2856 4.78973 18.0558 3.56422 16.3545C2.33872 14.6532 1.7335 12.5832 1.84949 10.4896C1.96549 8.39611 2.79569 6.40562 4.20165 4.85011C5.60761 3.2946 7.50434 2.2681 9.57553 1.94178C11.6467 1.61547 13.7672 2.00907 15.5833 3.05695" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.25 10.0827L11 12.8327L20.1667 3.66602" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 class="mt-4 font-bold text-navy text-[15px] leading-snug">Требования для участия</h3>
+              <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                Базовые навыки работы с компьютером, желание развиваться и внедрять цифровые инструменты
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M18.3335 2.75H3.66683C2.65431 2.75 1.8335 3.57081 1.8335 4.58333V13.75C1.8335 14.7625 2.65431 15.5833 3.66683 15.5833H18.3335C19.346 15.5833 20.1668 14.7625 20.1668 13.75V4.58333C20.1668 3.57081 19.346 2.75 18.3335 2.75Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.3335 19.25H14.6668" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 15.584V19.2507" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 class="mt-4 font-bold text-navy text-[15px] leading-snug">Формат обучения</h3>
+              <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                Смешанный формат: онлайн-лекции + практические оффлайн-сессии в группе
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14.187 11.8164L15.5758 19.6319C15.5913 19.7239 15.5784 19.8185 15.5388 19.903C15.4991 19.9875 15.4346 20.0579 15.3539 20.1047C15.2731 20.1516 15.18 20.1726 15.087 20.1651C14.994 20.1576 14.9055 20.1219 14.8333 20.0627L11.5516 17.5997C11.3932 17.4813 11.2007 17.4174 11.003 17.4174C10.8052 17.4174 10.6128 17.4813 10.4544 17.5997L7.16719 20.0618C7.09507 20.1209 7.00665 20.1566 6.91373 20.1641C6.82081 20.1716 6.72781 20.1506 6.64713 20.1039C6.56645 20.0572 6.50194 19.987 6.4622 19.9026C6.42245 19.8183 6.40937 19.7239 6.42469 19.6319L7.81252 11.8164" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 12.834C14.0376 12.834 16.5 10.3716 16.5 7.33398C16.5 4.29642 14.0376 1.83398 11 1.83398C7.96243 1.83398 5.5 4.29642 5.5 7.33398C5.5 10.3716 7.96243 12.834 11 12.834Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 class="mt-4 font-bold text-navy text-[15px] leading-snug">Итоговый документ</h3>
+              <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                Сертификат ЦПМ государственного образца, подтверждающий 36 академических часов
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Goal + Skills -->
+      <section class="w-full pb-8">
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+            <h2 class="font-extrabold text-[18px] text-navy">Цель программы</h2>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Программа направлена на развитие профессиональных компетенций педагогов
+              в области современной педагогики и цифровых инструментов.
+              Участники научатся проектировать эффективные учебные сессии и применять
+              AI-инструменты в педагогической практике.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2.5">
+              <span class="rounded-full bg-teal-50 text-brand-teal px-4 py-2 text-xs font-semibold">
+                Современное планирование
+              </span>
+              <span class="rounded-full bg-teal-50 text-brand-teal px-4 py-2 text-xs font-semibold">
+                Активные методы обучения
+              </span>
+              <span class="rounded-full bg-teal-50 text-brand-teal px-4 py-2 text-xs font-semibold">
+                Формирующее оценивание
+              </span>
+              <span class="rounded-full bg-teal-50 text-brand-teal px-4 py-2 text-xs font-semibold">
+                Цифровые и AI-инструменты
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+            <h2 class="font-extrabold text-[18px] text-navy">Чему вы научитесь</h2>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Создавать учебные цели и требования к результатам учащихся
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Составлять задания различных уровней сложности и понимания
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Применять формирующее оценивание и обратную связь в обучении
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Разрабатывать структуру интегрированных образовательных проектов
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Работать с учебным оборудованием учащихся и среды колледгов по уроку
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Разрабатывать персонализированный план внедрения цифровых практик
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content + Results -->
+      <section class="w-full pb-10">
+        <div class="grid lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+            <div class="flex items-center justify-between gap-4">
+              <h2 class="font-extrabold text-[18px] text-navy">Содержание программы</h2>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-brand-teal hover:text-brand-teal/90 transition"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <path d="M7 10l5 5 5-5"/>
+                  <path d="M12 15V3"/>
+                </svg>
+                Скачать программу (PDF)
+              </a>
+            </div>
+
+            <div class="mt-5 space-y-3">
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal flex items-center justify-center text-white font-extrabold">
+                    1
+                  </span>
+                  <div>
+                    <div class="font-bold text-navy text-sm">Современный урок: структура и планирование</div>
+                  </div>
+                </div>
+                <div class="text-xs text-slate-500">6 ч.</div>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal/80 flex items-center justify-center text-white font-extrabold">
+                    2
+                  </span>
+                  <div class="font-bold text-navy text-sm">
+                    Активное обучение и вовлечение учащихся
+                  </div>
+                </div>
+                <div class="text-xs text-slate-500">6 ч.</div>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal/70 flex items-center justify-center text-white font-extrabold">
+                    3
+                  </span>
+                  <div class="font-bold text-navy text-sm">
+                    Формирующее оценивание и обратная связь
+                  </div>
+                </div>
+                <div class="text-xs text-slate-500">6 ч.</div>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
+                    4
+                  </span>
+                  <div class="font-bold text-navy text-sm">AI-инструменты для педагогов</div>
+                </div>
+                <div class="text-xs text-slate-500">8 ч.</div>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
+                    5
+                  </span>
+                  <div class="font-bold text-navy text-sm">Цифровые ресурсы в ИКТ</div>
+                </div>
+                <div class="text-xs text-slate-500">6 ч.</div>
+              </div>
+
+              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+                <div class="flex items-center gap-3">
+                  <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
+                    6
+                  </span>
+                  <div class="font-bold text-navy text-sm">Практическая работа и итоговый проект</div>
+                </div>
+                <div class="text-xs text-slate-500">4 ч.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+            <h2 class="font-extrabold text-[18px] text-navy">Что вы получите в результате</h2>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Обновленные методические подходы к уроку
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Конкретный набор инструментов и методов
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Сертификат ЦПМ государственного образца
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Доступ к электронным материалам и шаблонам
+              </li>
+              <li class="flex items-start gap-3 text-sm text-slate-600">
+                <span class="mt-1 inline-flex w-5 h-5 rounded-full bg-brand-teal/10 items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Подтвержденные компетенции и повышение квалификации
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trainers -->
+      <section class="w-full pb-10">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-extrabold text-[18px] text-navy">Тренеры программы</h2>
+          <a href="trainer-profile.html" class="text-sm font-semibold text-brand-teal hover:text-brand-teal/90 transition">
+            Посмотреть всех тренеров &nbsp;›
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+            <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
+              <span class="text-2xl">А</span>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="font-bold text-navy text-sm">Айгерим Сейткали</div>
+              <div class="text-xs text-slate-500 mt-1">Старший тренер ЦПМ</div>
+              <div class="text-xs text-slate-400 mt-2">
+                Педагогика, Оценивание
+              </div>
+              <div class="mt-3 inline-flex items-center gap-2 text-xs text-slate-600">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span class="font-semibold">4.9</span>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1">320 педагогов</div>
+            </div>
+          </a>
+
+          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+            <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
+              <span class="text-2xl">Д</span>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="font-bold text-navy text-sm">Данияр Султанов</div>
+              <div class="text-xs text-slate-500 mt-1">Тренер-методист</div>
+              <div class="text-xs text-slate-400 mt-2">
+                Цифровые инструменты, ИКТ
+              </div>
+              <div class="mt-3 inline-flex items-center gap-2 text-xs text-slate-600">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span class="font-semibold">4.8</span>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1">210 педагогов</div>
+            </div>
+          </a>
+
+          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+            <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
+              <span class="text-2xl">М</span>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="font-bold text-navy text-sm">Мадина Нурланова</div>
+              <div class="text-xs text-slate-500 mt-1">AI-специалист</div>
+              <div class="text-xs text-slate-400 mt-2">
+                AI-инструменты, EdTech
+              </div>
+              <div class="mt-3 inline-flex items-center gap-2 text-xs text-slate-600">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span class="font-semibold">4.7</span>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1">180 педагогов</div>
+            </div>
+          </a>
+
+          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+            <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
+              <span class="text-2xl">Б</span>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="font-bold text-navy text-sm">Болат Ахмедов</div>
+              <div class="text-xs text-slate-500 mt-1">Тренер ЦПМ</div>
+              <div class="text-xs text-slate-400 mt-2">
+                Активное обучение
+              </div>
+              <div class="mt-3 inline-flex items-center gap-2 text-xs text-slate-600">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span class="font-semibold">4.9</span>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1">270 педагогов</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Streams -->
+      <section id="streams" class="w-full pb-10">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="font-extrabold text-[20px] text-navy">Доступные потоки</h2>
+          <a href="#" class="text-sm font-semibold text-brand-teal hover:text-brand-teal/90 transition inline-flex items-center gap-1">
+            Посмотреть все потоки (8)
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-4 lg:gap-5 items-start">
+          <!-- Featured nearest start -->
+          <div class="lg:col-span-4 rounded-2xl border-2 border-brand-teal bg-white p-5 sm:p-6">
+            <span class="inline-flex items-center rounded-full bg-brand-teal text-white text-xs font-semibold px-3 py-1">
+              Ближайший старт
+            </span>
+
+            <div class="mt-4 text-[32px] sm:text-[36px] font-extrabold text-navy leading-none">12 августа</div>
+            <div class="mt-1.5 text-sm text-slate-500">2026 года</div>
+
+            <ul class="mt-5 space-y-2.5 text-sm text-slate-600">
+              <li class="flex items-center gap-2.5">
+                <svg class="shrink-0 text-slate-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+                Айгерим Смагулова
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="shrink-0 text-slate-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                </svg>
+                Онлайн + Оффлайн
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="shrink-0 text-slate-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18"/><path d="M12 3a14.5 14.5 0 0 0 0 18"/>
+                </svg>
+                Русский
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="shrink-0 text-slate-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+                Пн-Пт: 18:00 – 21:00
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="shrink-0 text-slate-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+                </svg>
+                4 недели / 36 часов
+              </li>
+            </ul>
+
+            <div class="mt-5">
+              <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
+                <span>Мест осталось: 6 из 25</span>
+                <span class="font-semibold text-brand-teal">76%</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                <div class="h-full rounded-full bg-brand-teal" style="width:76%"></div>
+              </div>
+            </div>
+
+            <button type="button" class="mt-5 w-full rounded-xl bg-brand-teal text-white font-semibold py-3 hover:brightness-105 transition">
+              Записаться
+            </button>
+            <a href="#" class="mt-3 block text-center text-sm font-semibold text-brand-teal hover:text-brand-tealDark transition">
+              Подробнее о потоке
+            </a>
+          </div>
+
+          <!-- Other streams -->
+          <div class="lg:col-span-8 space-y-3">
+            <!-- Row 1 -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div class="sm:w-[118px] shrink-0">
+                <div class="text-lg font-extrabold text-navy leading-tight">26 августа</div>
+                <div class="text-xs text-slate-500 mt-0.5">2026</div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-slate-600">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Данияр Султанов
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Онлайн
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18"/></svg>
+                    Казахский
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Пн-Пт: 09:00 – 13:00
+                  </span>
+                </div>
+                <div class="mt-3 flex items-center gap-3">
+                  <div class="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full rounded-full bg-brand-teal" style="width:28%"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 whitespace-nowrap">Мест: 18 из 25</span>
+                </div>
+              </div>
+              <button type="button" class="shrink-0 rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:brightness-105 transition w-full sm:w-auto">
+                Записаться
+              </button>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div class="sm:w-[118px] shrink-0">
+                <div class="text-lg font-extrabold text-navy leading-tight">6 сентября</div>
+                <div class="text-xs text-slate-500 mt-0.5">2026</div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-slate-600">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Мадина Нурланова
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Оффлайн
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18"/></svg>
+                    Русский
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Сб-Вс: 10:00 – 18:00
+                  </span>
+                </div>
+                <div class="mt-3 flex items-center gap-3">
+                  <div class="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full rounded-full bg-brand-teal" style="width:12%"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 whitespace-nowrap">Мест: 22 из 25</span>
+                </div>
+              </div>
+              <button type="button" class="shrink-0 rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:brightness-105 transition w-full sm:w-auto">
+                Записаться
+              </button>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div class="sm:w-[118px] shrink-0">
+                <div class="text-lg font-extrabold text-navy leading-tight">16 сентября</div>
+                <div class="text-xs text-slate-500 mt-0.5">2026</div>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[13px] text-slate-600">
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Болат Ахмедов
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Онлайн
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14.5 14.5 0 0 1 0 18"/></svg>
+                    Русский
+                  </span>
+                  <span class="inline-flex items-center gap-1.5">
+                    <svg class="text-slate-400 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    Пн-Пт: 15:00 – 19:00
+                  </span>
+                </div>
+                <div class="mt-3 flex items-center gap-3">
+                  <div class="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div class="h-full rounded-full bg-brand-teal" style="width:80%"></div>
+                  </div>
+                  <span class="text-xs text-slate-500 whitespace-nowrap">Мест: 5 из 25</span>
+                </div>
+              </div>
+              <button type="button" class="shrink-0 rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:brightness-105 transition w-full sm:w-auto">
+                Записаться
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rating + Reviews -->
+      <section class="w-full pb-16">
+        <div class="grid lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+          <!-- Оценка программы -->
+          <div class="lg:col-span-5 rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 flex flex-col">
+            <h2 class="font-extrabold text-[18px] text-navy">Оценка программы</h2>
+
+            <div class="mt-5 flex items-start gap-4">
+              <div class="text-[48px] font-extrabold leading-none text-navy tracking-tight">4.9</div>
+              <div class="pt-1.5">
+                <div class="flex items-center gap-0.5" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+                <div class="mt-1 text-xs text-slate-500">1 240 педагогов оценили</div>
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-2.5">
+              <div class="flex items-center gap-2.5 text-xs text-slate-500">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="w-3 font-medium text-slate-600">5</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="h-full rounded-full bg-[#F59E0B]" style="width:82%"></div>
+                </div>
+                <span class="w-9 text-right">82%</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-slate-500">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="w-3 font-medium text-slate-600">4</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="h-full rounded-full bg-[#F59E0B]" style="width:12%"></div>
+                </div>
+                <span class="w-9 text-right">12%</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-slate-500">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="w-3 font-medium text-slate-600">3</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="h-full rounded-full bg-[#F59E0B]" style="width:4%"></div>
+                </div>
+                <span class="w-9 text-right">4%</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-slate-500">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="w-3 font-medium text-slate-600">2</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="h-full rounded-full bg-[#F59E0B]" style="width:1%"></div>
+                </div>
+                <span class="w-9 text-right">1%</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-slate-500">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span class="w-3 font-medium text-slate-600">1</span>
+                <div class="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+                  <div class="h-full rounded-full bg-[#F59E0B]" style="width:1%"></div>
+                </div>
+                <span class="w-9 text-right">1%</span>
+              </div>
+            </div>
+
+            <div class="mt-auto pt-6 space-y-3">
+              <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span><span class="font-bold text-navy">94%</span> рекомендуют программу</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/>
+                </svg>
+                <span><span class="font-bold text-navy">89%</span> применили инструменты</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-sm text-slate-700">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18999D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <span><span class="font-bold text-navy">8 650+</span> материалов получено</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Отзывы -->
+          <div class="lg:col-span-7 rounded-2xl border border-slate-200 bg-white p-6 sm:p-7">
+            <div class="flex items-center justify-between gap-4 mb-5">
+              <h2 class="font-extrabold text-[18px] text-navy">Отзывы о программе</h2>
+              <a href="#" class="text-sm font-semibold text-brand-teal hover:text-brand-teal/90 transition inline-flex items-center gap-1 shrink-0">
+                Все отзывы (186)
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3.5">
+              <article class="rounded-2xl border border-slate-100 p-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">ТО</div>
+                  <div class="min-w-0">
+                    <div class="font-bold text-navy text-sm truncate">Тайгонул О.</div>
+                    <div class="text-xs text-slate-500 truncate">Учитель математики, Алматы</div>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-0.5" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  </div>
+                  <span class="text-[11px] text-slate-400">12 июля 2026</span>
+                </div>
+                <p class="mt-2.5 text-[13px] text-slate-600 leading-relaxed line-clamp-3">
+                  Программа превзошла ожидания! Практические инструменты действительно помогают внедрить изменения на уроках.
+                </p>
+              </article>
+
+              <article class="rounded-2xl border border-slate-100 p-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">НМ</div>
+                  <div class="min-w-0">
+                    <div class="font-bold text-navy text-sm truncate">Нурлан М.</div>
+                    <div class="text-xs text-slate-500 truncate">Завуч, Астана</div>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-0.5" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  </div>
+                  <span class="text-[11px] text-slate-400">5 июля 2026</span>
+                </div>
+                <p class="mt-2.5 text-[13px] text-slate-600 leading-relaxed line-clamp-3">
+                  Отличная структура и понятные кейсы. После курса команда школы сразу начала применять AI-инструменты.
+                </p>
+              </article>
+
+              <article class="rounded-2xl border border-slate-100 p-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">ГА</div>
+                  <div class="min-w-0">
+                    <div class="font-bold text-navy text-sm truncate">Гульнара А.</div>
+                    <div class="text-xs text-slate-500 truncate">Учитель английского, Алматы</div>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-0.5" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  </div>
+                  <span class="text-[11px] text-slate-400">28 июня 2026</span>
+                </div>
+                <p class="mt-2.5 text-[13px] text-slate-600 leading-relaxed line-clamp-3">
+                  Очень полезные материалы и шаблоны. Тренеры отвечали на вопросы и помогали адаптировать инструменты.
+                </p>
+              </article>
+
+              <article class="rounded-2xl border border-slate-100 p-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">СД</div>
+                  <div class="min-w-0">
+                    <div class="font-bold text-navy text-sm truncate">Саят Д.</div>
+                    <div class="text-xs text-slate-500 truncate">Методист, Шымкент</div>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-0.5" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                  </div>
+                  <span class="text-[11px] text-slate-400">20 июня 2026</span>
+                </div>
+                <p class="mt-2.5 text-[13px] text-slate-600 leading-relaxed line-clamp-3">
+                  Рекомендую коллегам. Курс даёт конкретный план внедрения цифровых практик и формирующего оценивания.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
+
+        <!-- FOOTER -->
+        <footer
+          id="contacts"
+          class="relative bg-slate-50 border-t border-slate-100 mt-4 overflow-hidden"
+        >
+          <div
+            class="absolute left-0 bottom-0 w-64 h-40 bg-teal-100/40 rounded-full blur-3xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute right-0 bottom-0 w-64 h-40 bg-violet-100/30 rounded-full blur-3xl pointer-events-none"
+          ></div>
+
+          <div class="relative px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-10">
+              <!-- Brand -->
+              <div>
+                <div class="flex items-center gap-2">
+                  <img
+                    src="assets/logo.png"
+                    alt="Beyim Ustaz"
+                    class="h-10 w-auto max-w-[4rem] object-contain rounded-md"
+                  />
+                  <span class="font-extrabold text-navy text-lg"
+                    >Beyim Ustaz</span
+                  >
+                </div>
+                <p
+                  class="mt-4 text-[13.5px] text-slate-500 leading-relaxed max-w-xs"
+                >
+                  Единая цифровая экосистема для профессионального роста
+                  педагогов, школ и системы образования.
+                </p>
+                <p class="script-underline mt-4 text-brand-teal text-lg">
+                  Вместе к лучшему образованию!
+                </p>
+                <div
+                  class="mt-1 h-0.5 w-40 bg-brand-teal/60 rounded-full"
+                ></div>
+                <div class="mt-5 flex items-center gap-2.5">
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="YouTube"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Instagram"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Facebook"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-9 h-9 rounded-lg bg-navy text-white flex items-center justify-center hover:bg-navy-800 transition"
+                    aria-label="Telegram"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M21.5 3.5 2.8 11.2c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.7.4.9 1 .9.6 0 .8-.3 1.1-.6l2.7-2.6 5.6 4.1c1 .6 1.8.3 2-.9l3.5-16.5c.4-1.4-.5-2-1.6-1.6z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contacts -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-5">
+                  Контакты ЦПМ
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.1a16 16 0 0 0 6 6l.7-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.6 2z"
+                        />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Телефон</div>
+                      <div class="font-semibold text-navy text-sm">
+                        +7 (7172) 69-74-14
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7z" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">E-mail</div>
+                      <a
+                        href="mailto:info@cpm.kz"
+                        class="font-semibold text-brand-teal text-sm"
+                        >info@cpm.kz</a
+                      >
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"
+                        />
+                        <circle cx="12" cy="10" r="2.5" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Адрес</div>
+                      <div class="font-semibold text-navy text-sm leading-snug">
+                        г. Астана, ул. Хусейн бен Талал, 21/1
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Hours -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-5">
+                  Время работы
+                </h3>
+                <ul class="space-y-4">
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Пн – Пт</div>
+                      <div class="font-semibold text-navy text-sm">
+                        08:30 – 17:30
+                      </div>
+                    </div>
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="w-9 h-9 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"
+                        />
+                        <path d="M6 2v2M10 2v2M14 2v2" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-xs text-slate-400">Перерыв</div>
+                      <div class="font-semibold text-navy text-sm">
+                        12:30 – 13:30
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- App -->
+              <div>
+                <h3 class="font-extrabold text-navy text-lg mb-3 leading-snug">
+                  Мобильное приложение Beyim Ustaz
+                </h3>
+                <p class="text-[13px] text-slate-500 mb-4">
+                  Скачайте приложение и учитесь в любое время и в любом месте.
+                </p>
+                <div class="flex gap-4 items-start">
+                  <div class="flex flex-col gap-2">
+                    <a
+                      href="#"
+                      class="inline-flex items-center gap-2 bg-black text-white rounded-lg px-3 py-2 text-xs hover:bg-slate-800 transition"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M18.7 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.5-3.9zM15.5 5.2c.6-.8 1.1-1.9.9-3-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.5 2.9-1.4z"
+                        />
+                      </svg>
+                      <span
+                        ><span class="block text-[9px] opacity-80"
+                          >Download on the</span
+                        ><span class="font-semibold">App Store</span></span
+                      >
+                    </a>
+                    <a
+                      href="#"
+                      class="inline-flex items-center gap-2 bg-black text-white rounded-lg px-3 py-2 text-xs hover:bg-slate-800 transition"
+                    >
+                      <svg
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3.6 2.2c-.3.2-.6.6-.6 1.1v17.4c0 .5.3.9.6 1.1l9.8-9.8L3.6 2.2zm11.3 6.4-2.2-1.2-7.7 7.7 7.7 7.7 2.2-1.2 4.1-2.3c.9-.5.9-1.8 0-2.3l-4.1-2.4zM14 12l2.8 1.6L20.1 12l-3.3-1.6L14 12z"
+                        />
+                      </svg>
+                      <span
+                        ><span class="block text-[9px] opacity-80"
+                          >GET IT ON</span
+                        ><span class="font-semibold">Google Play</span></span
+                      >
+                    </a>
+                  </div>
+                  <div
+                    class="bg-white rounded-xl border border-slate-200 p-2 text-center"
+                  >
+                    <div
+                      class="w-20 h-20 bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect fill=%27%23000%27 width=%27100%27 height=%27100%27/%3E%3Cpath fill=%27%23fff%27 d=%27M10 10h20v20H10zm30 0h20v20H40zm30 0h20v20H70zM10 40h20v20H10zm30 0h20v20H40zm30 0h20v20H70zM10 70h20v20H10zm30 0h20v20H40zm30 0h20v20H70z%27/%3E%3Crect fill=%27%23fff%27 x=%2740%27 y=%2740%27 width=%2720%27 height=%2720%27/%3E%3C/svg%3E')] bg-cover rounded-md"
+                    ></div>
+                    <p
+                      class="mt-1 text-[9px] text-slate-500 leading-tight max-w-[80px] mx-auto"
+                    >
+                      Сканируйте QR-код для установки
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-10 pt-6 border-t border-slate-200 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 text-sm"
+            >
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                  </svg>
+                </span>
+                Пользовательское соглашение
+                <span class="text-brand-teal">›</span>
+              </a>
+              <span class="hidden lg:block w-px h-5 bg-slate-200"></span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+                Политика конфиденциальности
+                <span class="text-brand-teal">›</span>
+              </a>
+              <span class="hidden lg:block w-px h-5 bg-slate-200"></span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-2 text-navy font-medium hover:text-brand-teal transition"
+              >
+                <span
+                  class="w-7 h-7 rounded-full bg-brand-teal/15 text-brand-teal flex items-center justify-center"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <path d="M14 2v6h6" />
+                  </svg>
+                </span>
+                Договор-оферта
+                <span class="text-brand-teal">›</span>
+              </a>
+            </div>
+
+            <div class="mt-8 text-center text-xs text-slate-400 space-y-1">
+              <p>© 2026 Beyim Ustaz, Центр педагогического мастерства</p>
+              <p>AI Educational Ecosystem by CPM NIS</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobileNav" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/40" data-close></div>
+      <aside
+        class="absolute left-0 top-0 bottom-0 w-72 bg-white p-5 shadow-xl overflow-y-auto"
+      >
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-bold text-navy">Beyim Ustaz</span>
+          <button
+            data-close
+            class="p-2 rounded-lg hover:bg-slate-100"
+            aria-label="Закрыть"
+          >
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          <a
+            href="index.html"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Главная</a
+          >
+          <a
+            href="index.html#courses"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Витрина курсов</a
+          >
+          <a
+            href="index.html#events"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Мероприятия</a
+          >
+          <details class="nav-group" open>
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>Продукты</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="beyim-learn.html"
+                data-close
+                class="rounded-lg px-3 py-2 bg-navy text-white font-medium"
+                >Beyim Learn</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim School</a
+              >
+              <a
+                href="beyim-ai.html"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim AI</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Sabaq Track AI</a
+              >
+              <a
+                href="index.html#products"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Beyim Analytics</a
+              >
+            </div>
+          </details>
+          <a
+            href="#path"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Проф. путь</a
+          >
+          <details class="nav-group">
+            <summary
+              class="flex items-center justify-between rounded-xl px-3 py-2.5 hover:bg-slate-50 cursor-pointer"
+            >
+              <span>О нас</span>
+              <svg
+                class="nav-chevron"
+                width="14"
+                height="14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </summary>
+            <div class="ml-3 flex flex-col gap-0.5 pb-1">
+              <a
+                href="#about"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >О компании</a
+              >
+              <a
+                href="trainer-profile.html"
+                data-close
+                class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
+                >Тренеры</a
+              >
+              <details class="nav-group">
+                <summary
+                  class="flex items-center justify-between rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50 cursor-pointer"
+                >
+                  <span>Проекты</span>
+                  <svg
+                    class="nav-chevron"
+                    width="12"
+                    height="12"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </summary>
+                <div class="ml-2 flex flex-col gap-0.5">
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Отпан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Кадровый резерв</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Түркістан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Таджикистан</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Целиноград</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >СКО</a
+                  >
+                  <a
+                    href="#about"
+                    data-close
+                    class="rounded-lg px-3 py-1.5 text-[13px] text-slate-400 hover:bg-slate-50"
+                    >Опорные школы</a
+                  >
+                </div>
+              </details>
+            </div>
+          </details>
+          <a
+            href="#contacts"
+            data-close
+            class="rounded-xl px-3 py-2.5 hover:bg-slate-50"
+            >Контакты</a
+          >
+        </nav>
+      </aside>
+    </div>
+
+    <script>
+      <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileNav = document.getElementById("mobileNav");
+        menuBtn?.addEventListener("click", () =>
+          mobileNav.classList.remove("hidden")
+        );
+        mobileNav?.querySelectorAll("[data-close]").forEach((el) => {
+          el.addEventListener("click", () => mobileNav.classList.add("hidden"));
+        });
+
+        const langSwitch = document.getElementById("langSwitch");
+        const langBtn = document.getElementById("langBtn");
+        const langPopup = document.getElementById("langPopup");
+        const langLabel = document.getElementById("langLabel");
+        const langChevron = document.getElementById("langChevron");
+        const langActive =
+          "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-semibold text-white bg-brand-teal";
+        const langIdle =
+          "lang-option flex w-full items-center px-4 py-2.5 text-left text-sm font-medium text-brand-teal hover:bg-brand-teal/5 transition";
+
+        function openLangPopup(open) {
+          langPopup?.classList.toggle("hidden", !open);
+          langBtn?.setAttribute("aria-expanded", open ? "true" : "false");
+          langChevron?.classList.toggle("rotate-180", open);
+        }
+
+        function setLang(lang) {
+          langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+            const on = btn.getAttribute("data-lang") === lang;
+            btn.className = on ? langActive : langIdle;
+            if (on) {
+              btn.setAttribute("aria-selected", "true");
+              if (langLabel) langLabel.textContent = btn.getAttribute("data-label");
+            } else {
+              btn.removeAttribute("aria-selected");
+            }
+          });
+          document.documentElement.lang =
+            lang === "kk" ? "kk" : lang === "en" ? "en" : "ru";
+          try {
+            localStorage.setItem("beyim-lang", lang);
+          } catch (_) {}
+          openLangPopup(false);
+        }
+
+        langBtn?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openLangPopup(langPopup?.classList.contains("hidden"));
+        });
+
+        langSwitch?.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () =>
+            setLang(btn.getAttribute("data-lang"))
+          );
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!langSwitch?.contains(e.target)) openLangPopup(false);
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") openLangPopup(false);
+        });
+
+        try {
+          const saved = localStorage.getItem("beyim-lang");
+          if (saved && ["kk", "ru", "en"].includes(saved)) setLang(saved);
+        } catch (_) {}
+
+        document.querySelectorAll(".fav-btn").forEach((btn) => {
+          btn.addEventListener("click", () =>
+            btn.classList.toggle("is-active")
+          );
+        });
+    </script>
+  </body>
+</html>
