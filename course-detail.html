@@ -162,6 +162,17 @@
       aside nav details.nav-group > summary:hover {
         background: rgba(24, 153, 157, 0.08) !important;
       }
+
+      .course-panel-card {
+        background: #fff;
+        border: 1px solid #d5dee8;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+      .course-info-tile {
+        background: #fff;
+        border: 1px solid #c9d7e6;
+        box-shadow: 0 6px 18px rgba(15, 37, 64, 0.1);
+      }
       .course-card {
         box-shadow: var(--card-shadow);
         transition: box-shadow 0.2s ease;
@@ -338,7 +349,7 @@
                 >Beyim AI</a
               >
               <a
-                href="index.html#products"
+                href="sabaq-track.html"
                 class="rounded-lg px-3 py-2 text-slate-500 hover:text-navy hover:bg-slate-50 transition"
                 >Sabaq Track AI</a
               >
@@ -615,7 +626,7 @@
 
       <!-- Hero -->
       <section class="w-full pb-6">
-        <div class="rounded-[24px] border border-slate-100 shadow-soft bg-white p-5 sm:p-7 lg:p-8">
+        <div class="rounded-[24px] border border-[#B8CEE3] bg-[#E8F1F8] shadow-[0_10px_30px_rgba(15,37,64,0.08)] p-5 sm:p-7 lg:p-8">
           <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             <div class="lg:col-span-7 flex flex-col">
               <span
@@ -632,7 +643,7 @@
                 ИИ-инструменты в педагогической практике
               </h1>
 
-              <p class="mt-3 text-sm sm:text-[15px] text-slate-500 leading-relaxed max-w-2xl">
+              <p class="mt-3 text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-2xl">
                 Практико-ориентированная программа для педагогов, направленная
                 на повышение качества образования с использованием современных
                 цифровых и AI-инструментов.
@@ -671,8 +682,8 @@
                 </span>
               </div>
 
-              <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-0 border border-slate-100 rounded-2xl overflow-hidden bg-slate-50/40">
-                <div class="px-4 py-3.5 sm:border-r border-slate-100">
+              <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-0 border border-[#C9D7E6] rounded-2xl overflow-hidden bg-white shadow-[0_4px_14px_rgba(15,37,64,0.06)]">
+                <div class="px-4 py-3.5 sm:border-r border-[#D5DEE8]">
                   <div class="text-[28px] font-extrabold leading-none text-navy">4.9</div>
                   <div class="mt-1.5 flex items-center gap-0.5" aria-hidden="true">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -683,15 +694,15 @@
                   </div>
                   <div class="mt-1 text-xs text-slate-500">Рейтинг</div>
                 </div>
-                <div class="px-4 py-3.5 sm:border-r border-slate-100 border-t sm:border-t-0 border-slate-100">
+                <div class="px-4 py-3.5 sm:border-r border-[#D5DEE8] border-t sm:border-t-0">
                   <div class="text-[28px] font-extrabold leading-none text-navy">1 240</div>
                   <div class="mt-2 text-xs text-slate-500 leading-snug">педагогов прошли<br />обучение</div>
                 </div>
-                <div class="px-4 py-3.5 sm:border-r border-slate-100 border-t sm:border-t-0 border-slate-100">
+                <div class="px-4 py-3.5 sm:border-r border-[#D5DEE8] border-t sm:border-t-0">
                   <div class="text-[28px] font-extrabold leading-none text-navy">94%</div>
                   <div class="mt-2 text-xs text-slate-500 leading-snug">рекомендуют<br />программу</div>
                 </div>
-                <div class="px-4 py-3.5 border-t sm:border-t-0 border-slate-100">
+                <div class="px-4 py-3.5 border-t sm:border-t-0 border-[#D5DEE8]">
                   <div class="text-[28px] font-extrabold leading-none text-navy">8</div>
                   <div class="mt-2 text-xs text-slate-500 leading-snug">потоков открыто<br />для записи</div>
                 </div>
@@ -731,9 +742,9 @@
 
       <!-- 4 info cards -->
       <section class="w-full pb-8">
-        <div class="rounded-[24px] bg-[#F0FDFD] p-4 sm:p-5 lg:p-6">
+        <div class="rounded-[24px] bg-[#D8F0EE] border border-[#B5DDD8] p-4 sm:p-5 lg:p-6 shadow-[0_8px_24px_rgba(15,37,64,0.06)]">
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+            <div class="course-info-tile rounded-2xl p-5 sm:p-6">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M14.6668 19.25V17.4167C14.6668 16.4442 14.2805 15.5116 13.5929 14.8239C12.9053 14.1363 11.9726 13.75 11.0002 13.75H5.50016C4.5277 13.75 3.59507 14.1363 2.90744 14.8239C2.2198 15.5116 1.8335 16.4442 1.8335 17.4167V19.25" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M8.25016 10.0833C10.2752 10.0833 11.9168 8.44171 11.9168 6.41667C11.9168 4.39162 10.2752 2.75 8.25016 2.75C6.22512 2.75 4.5835 4.39162 4.5835 6.41667C4.5835 8.44171 6.22512 10.0833 8.25016 10.0833Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -746,7 +757,7 @@
               </p>
             </div>
 
-            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+            <div class="course-info-tile rounded-2xl p-5 sm:p-6">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M19.9842 9.16654C20.4029 11.2211 20.1045 13.357 19.1389 15.2182C18.1733 17.0794 16.5989 18.5532 14.6781 19.3941C12.7573 20.2349 10.6064 20.3918 8.58391 19.8387C6.56144 19.2856 4.78973 18.0558 3.56422 16.3545C2.33872 14.6532 1.7335 12.5832 1.84949 10.4896C1.96549 8.39611 2.79569 6.40562 4.20165 4.85011C5.60761 3.2946 7.50434 2.2681 9.57553 1.94178C11.6467 1.61547 13.7672 2.00907 15.5833 3.05695" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M8.25 10.0827L11 12.8327L20.1667 3.66602" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -757,7 +768,7 @@
               </p>
             </div>
 
-            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+            <div class="course-info-tile rounded-2xl p-5 sm:p-6">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M18.3335 2.75H3.66683C2.65431 2.75 1.8335 3.57081 1.8335 4.58333V13.75C1.8335 14.7625 2.65431 15.5833 3.66683 15.5833H18.3335C19.346 15.5833 20.1668 14.7625 20.1668 13.75V4.58333C20.1668 3.57081 19.346 2.75 18.3335 2.75Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M7.3335 19.25H14.6668" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -769,7 +780,7 @@
               </p>
             </div>
 
-            <div class="rounded-2xl bg-white shadow-soft p-5 sm:p-6">
+            <div class="course-info-tile rounded-2xl p-5 sm:p-6">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M14.187 11.8164L15.5758 19.6319C15.5913 19.7239 15.5784 19.8185 15.5388 19.903C15.4991 19.9875 15.4346 20.0579 15.3539 20.1047C15.2731 20.1516 15.18 20.1726 15.087 20.1651C14.994 20.1576 14.9055 20.1219 14.8333 20.0627L11.5516 17.5997C11.3932 17.4813 11.2007 17.4174 11.003 17.4174C10.8052 17.4174 10.6128 17.4813 10.4544 17.5997L7.16719 20.0618C7.09507 20.1209 7.00665 20.1566 6.91373 20.1641C6.82081 20.1716 6.72781 20.1506 6.64713 20.1039C6.56645 20.0572 6.50194 19.987 6.4622 19.9026C6.42245 19.8183 6.40937 19.7239 6.42469 19.6319L7.81252 11.8164" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M11 12.834C14.0376 12.834 16.5 10.3716 16.5 7.33398C16.5 4.29642 14.0376 1.83398 11 1.83398C7.96243 1.83398 5.5 4.29642 5.5 7.33398C5.5 10.3716 7.96243 12.834 11 12.834Z" stroke="#18999D" stroke-width="1.83333" stroke-linecap="round" stroke-linejoin="round"/>
@@ -786,7 +797,7 @@
       <!-- Goal + Skills -->
       <section class="w-full pb-8">
         <div class="grid lg:grid-cols-12 gap-6">
-          <div class="lg:col-span-5 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+          <div class="lg:col-span-5 course-panel-card rounded-2xl p-6 sm:p-7">
             <h2 class="font-extrabold text-[18px] text-navy">Цель программы</h2>
             <p class="mt-3 text-sm text-slate-600 leading-relaxed">
               Программа направлена на развитие профессиональных компетенций педагогов
@@ -811,7 +822,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-7 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+          <div class="lg:col-span-7 course-panel-card rounded-2xl p-6 sm:p-7">
             <h2 class="font-extrabold text-[18px] text-navy">Чему вы научитесь</h2>
             <ul class="mt-4 space-y-3">
               <li class="flex items-start gap-3 text-sm text-slate-600">
@@ -870,7 +881,7 @@
       <!-- Content + Results -->
       <section class="w-full pb-10">
         <div class="grid lg:grid-cols-12 gap-6">
-          <div class="lg:col-span-7 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+          <div class="lg:col-span-7 course-panel-card rounded-2xl p-6 sm:p-7">
             <div class="flex items-center justify-between gap-4">
               <h2 class="font-extrabold text-[18px] text-navy">Содержание программы</h2>
               <a
@@ -887,7 +898,7 @@
             </div>
 
             <div class="mt-5 space-y-3">
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal flex items-center justify-center text-white font-extrabold">
                     1
@@ -899,7 +910,7 @@
                 <div class="text-xs text-slate-500">6 ч.</div>
               </div>
 
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal/80 flex items-center justify-center text-white font-extrabold">
                     2
@@ -911,7 +922,7 @@
                 <div class="text-xs text-slate-500">6 ч.</div>
               </div>
 
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal/70 flex items-center justify-center text-white font-extrabold">
                     3
@@ -923,7 +934,7 @@
                 <div class="text-xs text-slate-500">6 ч.</div>
               </div>
 
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
                     4
@@ -933,7 +944,7 @@
                 <div class="text-xs text-slate-500">8 ч.</div>
               </div>
 
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
                     5
@@ -943,7 +954,7 @@
                 <div class="text-xs text-slate-500">6 ч.</div>
               </div>
 
-              <div class="flex items-center justify-between rounded-xl border border-slate-100 p-4 hover:border-brand-teal/30 transition">
+              <div class="flex items-center justify-between rounded-xl border border-[#D5DEE8] bg-[#F8FBFD] p-4 hover:border-brand-teal/40 transition">
                 <div class="flex items-center gap-3">
                   <span class="w-9 h-9 rounded-full bg-brand-teal/60 flex items-center justify-center text-white font-extrabold">
                     6
@@ -955,7 +966,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-5 rounded-2xl border border-slate-100 bg-white p-6 sm:p-7">
+          <div class="lg:col-span-5 course-panel-card rounded-2xl p-6 sm:p-7">
             <h2 class="font-extrabold text-[18px] text-navy">Что вы получите в результате</h2>
             <ul class="mt-4 space-y-3">
               <li class="flex items-start gap-3 text-sm text-slate-600">
@@ -1013,7 +1024,7 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+          <a href="trainer-profile.html" class="course-panel-card rounded-2xl p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
             <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
               <span class="text-2xl">А</span>
             </div>
@@ -1033,7 +1044,7 @@
             </div>
           </a>
 
-          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+          <a href="trainer-profile.html" class="course-panel-card rounded-2xl p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
             <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
               <span class="text-2xl">Д</span>
             </div>
@@ -1053,7 +1064,7 @@
             </div>
           </a>
 
-          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+          <a href="trainer-profile.html" class="course-panel-card rounded-2xl p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
             <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
               <span class="text-2xl">М</span>
             </div>
@@ -1073,7 +1084,7 @@
             </div>
           </a>
 
-          <a href="trainer-profile.html" class="rounded-2xl border border-slate-100 bg-white p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
+          <a href="trainer-profile.html" class="course-panel-card rounded-2xl p-5 hover:border-brand-teal/40 hover:shadow-soft transition block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal/40">
             <div class="w-16 h-16 rounded-full mx-auto bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center">
               <span class="text-2xl">Б</span>
             </div>
@@ -1107,7 +1118,7 @@
 
         <div class="grid lg:grid-cols-12 gap-4 lg:gap-5 items-start">
           <!-- Featured nearest start -->
-          <div class="lg:col-span-4 rounded-2xl border-2 border-brand-teal bg-white p-5 sm:p-6">
+          <div class="lg:col-span-4 rounded-2xl border-2 border-brand-teal bg-white shadow-[0_8px_24px_rgba(4,93,96,0.12)] p-5 sm:p-6">
             <span class="inline-flex items-center rounded-full bg-brand-teal text-white text-xs font-semibold px-3 py-1">
               Ближайший старт
             </span>
@@ -1169,7 +1180,7 @@
           <!-- Other streams -->
           <div class="lg:col-span-8 space-y-3">
             <!-- Row 1 -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="course-panel-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
               <div class="sm:w-[118px] shrink-0">
                 <div class="text-lg font-extrabold text-navy leading-tight">26 августа</div>
                 <div class="text-xs text-slate-500 mt-0.5">2026</div>
@@ -1206,7 +1217,7 @@
             </div>
 
             <!-- Row 2 -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="course-panel-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
               <div class="sm:w-[118px] shrink-0">
                 <div class="text-lg font-extrabold text-navy leading-tight">6 сентября</div>
                 <div class="text-xs text-slate-500 mt-0.5">2026</div>
@@ -1243,7 +1254,7 @@
             </div>
 
             <!-- Row 3 -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="course-panel-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4">
               <div class="sm:w-[118px] shrink-0">
                 <div class="text-lg font-extrabold text-navy leading-tight">16 сентября</div>
                 <div class="text-xs text-slate-500 mt-0.5">2026</div>
@@ -1286,7 +1297,7 @@
       <section class="w-full pb-16">
         <div class="grid lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
           <!-- Оценка программы -->
-          <div class="lg:col-span-5 rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 flex flex-col">
+          <div class="lg:col-span-5 course-panel-card rounded-2xl p-6 sm:p-7 flex flex-col">
             <h2 class="font-extrabold text-[18px] text-navy">Оценка программы</h2>
 
             <div class="mt-5 flex items-start gap-4">
@@ -1367,7 +1378,7 @@
           </div>
 
           <!-- Отзывы -->
-          <div class="lg:col-span-7 rounded-2xl border border-slate-200 bg-white p-6 sm:p-7">
+          <div class="lg:col-span-7 course-panel-card rounded-2xl p-6 sm:p-7">
             <div class="flex items-center justify-between gap-4 mb-5">
               <h2 class="font-extrabold text-[18px] text-navy">Отзывы о программе</h2>
               <a href="#" class="text-sm font-semibold text-brand-teal hover:text-brand-teal/90 transition inline-flex items-center gap-1 shrink-0">
@@ -1377,7 +1388,7 @@
             </div>
 
             <div class="grid sm:grid-cols-2 gap-3.5">
-              <article class="rounded-2xl border border-slate-100 p-4">
+              <article class="rounded-2xl border border-[#D5DEE8] bg-[#F8FBFD] p-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">ТО</div>
                   <div class="min-w-0">
@@ -1400,7 +1411,7 @@
                 </p>
               </article>
 
-              <article class="rounded-2xl border border-slate-100 p-4">
+              <article class="rounded-2xl border border-[#D5DEE8] bg-[#F8FBFD] p-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">НМ</div>
                   <div class="min-w-0">
@@ -1423,7 +1434,7 @@
                 </p>
               </article>
 
-              <article class="rounded-2xl border border-slate-100 p-4">
+              <article class="rounded-2xl border border-[#D5DEE8] bg-[#F8FBFD] p-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">ГА</div>
                   <div class="min-w-0">
@@ -1446,7 +1457,7 @@
                 </p>
               </article>
 
-              <article class="rounded-2xl border border-slate-100 p-4">
+              <article class="rounded-2xl border border-[#D5DEE8] bg-[#F8FBFD] p-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold shrink-0">СД</div>
                   <div class="min-w-0">
@@ -1953,7 +1964,7 @@
                 >Beyim AI</a
               >
               <a
-                href="index.html#products"
+                href="sabaq-track.html"
                 data-close
                 class="rounded-lg px-3 py-2 text-slate-500 hover:bg-slate-50"
                 >Sabaq Track AI</a
