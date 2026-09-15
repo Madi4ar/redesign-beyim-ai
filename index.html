@@ -254,6 +254,69 @@
         transform: rotate(48deg) scale(0.74);
         opacity: 0.34;
       }
+      .autumn-actions {
+        position: relative;
+        padding: 3px;
+        border-radius: 999px;
+        /* background: linear-gradient(135deg, #f1a24a, #d96c2f); */
+      }
+
+      .autumn-actions #langBtn,
+      .autumn-actions .autumn-login,
+      .autumn-actions .autumn-register {
+        height: 44px;
+        border-radius: 999px;
+        font-size: 14px;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .autumn-actions #langBtn {
+        border: 2px solid #d96c2f;
+        background: #fffaf2;
+        color: #a95c2b;
+      }
+
+      .autumn-actions #langBtn:hover,
+      .autumn-actions .autumn-login:hover {
+        background: #fff0dc;
+        color: #c45d22;
+      }
+
+      .autumn-actions .autumn-login {
+        border: 2px solid #d96c2f;
+        background: #fffaf2;
+        color: #a95c2b;
+      }
+
+      .autumn-actions .autumn-register {
+        border: 0;
+        background: linear-gradient(135deg, #d96c2f, #b94d0b);
+        color: #fff;
+        box-shadow: 0 6px 16px rgba(185, 77, 11, 0.22);
+      }
+
+      .autumn-actions .autumn-register:hover {
+        background: linear-gradient(135deg, #e67b3b, #a94408);
+        box-shadow: 0 8px 20px rgba(185, 77, 11, 0.3);
+      }
+
+      @media (max-width: 640px) {
+        .autumn-actions {
+          padding: 0;
+          background: transparent;
+        }
+
+        .autumn-actions #langBtn,
+        .autumn-actions .autumn-login,
+        .autumn-actions .autumn-register {
+          height: 40px;
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+      }
 
       @media (max-width: 640px) {
         .autumn-search input {
@@ -1218,7 +1281,8 @@
                 ><span></span
               ></span>
             </div>
-            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+            <div
+              class="flex items-center gap-2 sm:gap-3 ml-auto autumn-actions">
               <div class="relative" id="langSwitch">
                 <button
                   type="button"
@@ -1226,7 +1290,7 @@
                   aria-haspopup="listbox"
                   aria-expanded="false"
                   aria-label="Выбор языка"
-                  class="inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-3 sm:px-3.5 py-2 hover:bg-brand-teal/5 transition">
+                  class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 font-semibold autumn-language">
                   <svg
                     width="16"
                     height="16"
@@ -1287,12 +1351,12 @@
               </div>
               <a
                 href="#"
-                class="hidden sm:inline-flex items-center justify-center rounded-xl border-2 border-brand-teal text-brand-teal font-semibold text-sm px-5 py-2 hover:bg-brand-teal/5 transition"
+                class="hidden sm:inline-flex items-center justify-center px-5 py-2 font-semibold autumn-login"
                 >Вход</a
               >
               <a
                 href="#"
-                class="inline-flex items-center justify-center rounded-xl bg-brand-teal text-white font-semibold text-sm px-5 py-2.5 hover:bg-brand-tealDark transition shadow-sm"
+                class="inline-flex items-center justify-center font-semibold px-5 py-2.5 autumn-register"
                 >Регистрация</a
               >
             </div>
