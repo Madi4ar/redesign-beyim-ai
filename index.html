@@ -408,7 +408,10 @@
       }
 
       .banner-panel {
-        min-height: 360px;
+        min-width: 0;
+        container-type: inline-size;
+        overflow-wrap: anywhere;
+        min-height: 300px;
         border-radius: 14px;
         overflow: hidden;
         position: relative;
@@ -416,7 +419,7 @@
 
       .banner-brand {
         color: #fff;
-        padding: clamp(28px, 4vw, 58px);
+        padding: clamp(22px, 3vw, 42px);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -448,7 +451,7 @@
 
       .banner-brand h1 {
         max-width: 540px;
-        font-size: clamp(30px, 3.2vw, 48px);
+        font-size: clamp(24px, 7cqi, 48px);
         line-height: 1.2;
         letter-spacing: -0.02em;
         font-weight: 800;
@@ -481,13 +484,16 @@
       }
 
       .banner-slider {
+        display: grid;
+        grid-template-rows: 1fr auto;
         background: #d8f5ce;
       }
 
       .banner-slide {
-        position: absolute;
-        inset: 0;
-        padding: clamp(28px, 4vw, 58px);
+        position: relative;
+        grid-area: 1 / 1;
+        min-width: 0;
+        padding: clamp(18px, 5cqi, 32px);
         opacity: 0;
         visibility: hidden;
         transition:
@@ -500,13 +506,9 @@
         visibility: visible;
       }
 
-      .banner-promo {
-        padding: clamp(26px, 3.5vw, 48px);
-      }
-
       .banner-slide h2 {
         color: #f26b3f;
-        font-size: clamp(23px, 2.45vw, 36px);
+        font-size: clamp(21px, 6cqi, 32px);
         line-height: 1.15;
         font-weight: 800;
       }
@@ -514,34 +516,38 @@
       .banner-slide p {
         color: #285b29;
         max-width: 620px;
-        margin-top: 20px;
-        font-size: clamp(14px, 1.15vw, 18px);
+        margin-top: 14px;
+        font-size: clamp(14px, 3.5cqi, 17px);
         line-height: 1.38;
       }
 
       .banner-promo p + p {
-        margin-top: 28px;
+        margin-top: 16px;
       }
 
       .banner-price {
         display: flex;
         align-items: baseline;
-        gap: 18px;
-        margin-top: 28px;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        margin-top: 16px;
         color: #164e1c;
       }
 
       .banner-price strong {
-        font-size: clamp(28px, 3vw, 42px);
+        font-size: clamp(26px, 7cqi, 38px);
       }
 
       .banner-price del {
-        font-size: clamp(16px, 1.55vw, 22px);
+        font-size: clamp(16px, 4cqi, 22px);
         text-decoration-color: #f26b3f;
       }
 
       .banner-cta {
         display: inline-flex;
+        max-width: 100%;
+        justify-content: center;
+        text-align: center;
         margin-top: 22px;
         padding: 10px 23px;
         border-radius: 999px;
@@ -561,23 +567,23 @@
       .banner-slide-art .art-copy {
         position: relative;
         z-index: 1;
-        width: 45%;
+        flex: 1 1 55%;
+        min-width: 0;
       }
 
       .banner-slide-art img {
-        position: absolute;
-        right: 2%;
-        bottom: 0;
-        width: 62%;
-        max-height: 96%;
+        flex: 0 1 40%;
+        min-width: 0;
+        width: 40%;
+        max-height: 240px;
         object-fit: contain;
         object-position: bottom right;
       }
 
       .banner-controls {
-        position: absolute;
-        right: 22px;
-        bottom: 18px;
+        grid-area: 2 / 1;
+        justify-self: end;
+        margin: 0 22px 18px;
         z-index: 3;
         display: flex;
         align-items: center;
@@ -619,11 +625,28 @@
         }
 
         .banner-panel {
-          min-height: 390px;
+          min-height: 320px;
+        }
+
+      }
+
+      @container (max-width: 420px) {
+        .banner-slide-art {
+          flex-direction: column;
+          justify-content: center;
+          align-items: stretch;
+          gap: 16px;
         }
 
         .banner-slide-art .art-copy {
-          width: 55%;
+          flex: 0 1 auto;
+        }
+
+        .banner-slide-art img {
+          flex: 0 1 auto;
+          align-self: center;
+          width: min(65%, 200px);
+          max-height: 140px;
         }
       }
 
@@ -2946,7 +2969,7 @@
                     </svg>
                   </span>
                   <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2EC4B6] leading-none tracking-tight">
+                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2EC4B6] leading-none tracking-tight" data-counter="300000" data-suffix="+">
                     300 000+
                   </div>
                   <div
@@ -2975,7 +2998,7 @@
                     </svg>
                   </span>
                   <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2563EB] leading-none tracking-tight">
+                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2563EB] leading-none tracking-tight" data-counter="7000" data-suffix="+">
                     7 000+
                   </div>
                   <div
@@ -3002,7 +3025,7 @@
                     </svg>
                   </span>
                   <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#0D9488] leading-none tracking-tight">
+                    class="text-[20px] sm:text-[22px] font-extrabold text-[#0D9488] leading-none tracking-tight" data-counter="2500" data-suffix="+">
                     2 500+
                   </div>
                   <div
@@ -3029,7 +3052,7 @@
                     </svg>
                   </span>
                   <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#7C3AED] leading-none tracking-tight">
+                    class="text-[20px] sm:text-[22px] font-extrabold text-[#7C3AED] leading-none tracking-tight" data-counter="1500000" data-suffix="+">
                     1 500 000+
                   </div>
                   <div
@@ -3062,7 +3085,7 @@
                     </svg>
                   </span>
                   <div
-                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2EC4B6] leading-none tracking-tight">
+                    class="text-[20px] sm:text-[22px] font-extrabold text-[#2EC4B6] leading-none tracking-tight" data-counter="17">
                     17
                   </div>
                   <div
@@ -3974,6 +3997,63 @@
         slider.addEventListener('mouseleave', restartTimer);
         showSlide(0);
         restartTimer();
+      })();
+
+      (() => {
+        const counters = [...document.querySelectorAll('[data-counter]')];
+        if (!counters.length) return;
+
+        const formatNumber = (value) =>
+          new Intl.NumberFormat('ru-RU').format(value).replace(/\u00a0/g, ' ');
+
+        function animateCounter(counter) {
+          if (counter.dataset.counted === 'true') return;
+          counter.dataset.counted = 'true';
+
+          const target = Number(counter.dataset.counter);
+          const suffix = counter.dataset.suffix || '';
+          const reducedMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)',
+          ).matches;
+
+          if (reducedMotion) {
+            counter.textContent = formatNumber(target) + suffix;
+            return;
+          }
+
+          const duration = 1500;
+          const startedAt = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - startedAt) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent =
+              formatNumber(Math.floor(target * eased)) + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+
+        const statsSection = counters[0].closest('section');
+        if (!statsSection || !('IntersectionObserver' in window)) {
+          counters.forEach(animateCounter);
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            counters.forEach(animateCounter);
+            observer.disconnect();
+          },
+          { threshold: 0.25 },
+        );
+
+        observer.observe(statsSection);
       })();
 
       (() => {
